@@ -13,7 +13,7 @@
         <!--Login Form View Controller-->
         <scene sceneID="eBL-vj-X5n">
             <objects>
-                <viewController id="J4k-8m-ja6" customClass="LoginFormViewController" customModule="igor_chernyshov" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="J4k-8m-ja6" customClass="LoginFormViewController" customModule="vkontakte_client" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PGm-tZ-ot8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,7 +28,6 @@
                             </wkWebView>
                             <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="kI1-U0-04M">
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="color" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
