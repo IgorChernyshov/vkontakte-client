@@ -10,15 +10,24 @@ import UIKit
 import RealmSwift
 
 class MyFriendsPhotosController: UICollectionViewController {
-
+  
   var usersId = ""
   private var photos: List<Photo>!
   private var token: NotificationToken?
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     APIService.instance.requestUsersProfilePhotos(userId: usersId)
     pairCollectionViewAndRealm()
+    // Set cells size automatically
+    let flow = self.collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
+    let itemSpacing: CGFloat = 3
+    let itemsInOneLine: CGFloat = 2
+    flow.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
+    let width = UIScreen.main.bounds.size.width - itemSpacing * CGFloat(itemsInOneLine - 1)
+    flow.itemSize = CGSize(width: floor(width/itemsInOneLine), height: width/itemsInOneLine)
+    flow.minimumInteritemSpacing = 3
+    flow.minimumLineSpacing = 3
   }
   
   private func pairCollectionViewAndRealm() {
@@ -44,12 +53,12 @@ class MyFriendsPhotosController: UICollectionViewController {
   override func numberOfSections(in collectionView: UICollectionView) -> Int {
     return 1
   }
-
+  
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     collectionView.backgroundView?.isHidden = (photos.count > 0)
     return photos.count
   }
-
+  
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myFriendsPhotos", for: indexPath) as? MyFriendsPhotosCell else {
       return UICollectionViewCell()
