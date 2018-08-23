@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Swy-NK-Y6b">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Друзья-->
+        <scene sceneID="kvc-Dv-nfH">
+            <objects>
+                <tableViewController id="jSL-zp-Z1X" customClass="MyFriendsController" customModule="igor_chernyshov" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CbL-1Y-yuV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myFriendsCell" rowHeight="75" id="A55-pn-95E" customClass="MyFriendsCell" customModule="igor_chernyshov" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="75"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A55-pn-95E" id="3Fs-dz-GUJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="usersProfilePhotoPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="U1M-Qx-XNL" customClass="RoundedImage" customModule="igor_chernyshov" customModuleProvider="target">
+                                            <rect key="frame" x="16" y="12" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </imageView>
+                                        <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Имя Фамилия" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UD0-9o-lcQ">
+                                            <rect key="frame" x="74" y="26" width="119" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="profilePhotoImage" destination="U1M-Qx-XNL" id="95R-1s-k1C"/>
+                                    <outlet property="userNameLabel" destination="UD0-9o-lcQ" id="Far-EM-xUw"/>
+                                    <segue destination="GZS-4i-C2s" kind="show" identifier="toFriendsPhotos" id="TQM-Oj-aMT"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="jSL-zp-Z1X" id="1rx-zA-xue"/>
+                            <outlet property="delegate" destination="jSL-zp-Z1X" id="t3j-Hm-trB"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Друзья" id="lGv-rg-E9i">
+                        <barButtonItem key="backBarButtonItem" title="Назад" id="BuA-xz-8rz"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XR7-qc-ITw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4040.8000000000002" y="-320.68965517241384"/>
+        </scene>
+        <!--Фото друга-->
+        <scene sceneID="41G-s4-Cb7">
+            <objects>
+                <collectionViewController id="GZS-4i-C2s" customClass="MyFriendsPhotosController" customModule="igor_chernyshov" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="wGN-Uq-olb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0le-xv-1yQ">
+                            <size key="itemSize" width="150" height="150"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="myFriendsPhotos" id="VNo-72-5Ik" customClass="MyFriendsPhotosCell" customModule="igor_chernyshov" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="usersPhotoPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="1dP-ev-AYF">
+                                            <rect key="frame" x="8" y="8" width="134" height="70"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="trailingMargin" secondItem="1dP-ev-AYF" secondAttribute="trailing" id="Xrh-6F-t3y"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="1dP-ev-AYF" secondAttribute="bottom" id="eEq-fl-v2U"/>
+                                    <constraint firstItem="1dP-ev-AYF" firstAttribute="leading" secondItem="VNo-72-5Ik" secondAttribute="leadingMargin" id="fnK-7j-Yj7"/>
+                                    <constraint firstItem="1dP-ev-AYF" firstAttribute="top" secondItem="VNo-72-5Ik" secondAttribute="topMargin" id="h3X-2M-kTh"/>
+                                </constraints>
+                                <size key="customSize" width="150" height="150"/>
+                                <connections>
+                                    <outlet property="usersPhotoImage" destination="1dP-ev-AYF" id="vMU-HT-YTk"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="GZS-4i-C2s" id="l3l-5H-5Yo"/>
+                            <outlet property="delegate" destination="GZS-4i-C2s" id="DSr-eS-LJw"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Фото друга" id="KY6-2p-BPC"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0PK-dy-cEs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4983.1999999999998" y="-320.68965517241384"/>
+        </scene>
+        <!--Друзья-->
+        <scene sceneID="OEm-T9-Yw1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Swy-NK-Y6b" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Друзья" image="friendsIcon" id="W7l-jw-FQX">
+                        <color key="badgeColor" red="0.51372549020000002" green="0.61176470589999998" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="jGH-px-mmu">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.32549019610000002" green="0.45882352939999999" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jSL-zp-Z1X" kind="relationship" relationship="rootViewController" id="Msf-9P-Mp9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Om-fU-rY2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3144" y="-320"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="friendsIcon" width="28" height="30"/>
+        <image name="usersPhotoPlaceholder" width="600" height="600"/>
+        <image name="usersProfilePhotoPlaceholder" width="100" height="100"/>
+    </resources>
+</document>

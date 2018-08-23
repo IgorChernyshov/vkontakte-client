@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nY2-5D-sxX">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Группы-->
+        <scene sceneID="RVg-1u-A6x">
+            <objects>
+                <tableViewController id="Zee-Ow-pnK" customClass="MyGroupsController" customModule="igor_chernyshov" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="rXr-80-Bxg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="myGroupsCell" rowHeight="75" id="m8b-hm-49a" customClass="MyGroupsCell" customModule="igor_chernyshov" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="75"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m8b-hm-49a" id="H5M-IF-9eR">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="groupProfilePhotoPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="3cG-6y-LzS" customClass="RoundedImage" customModule="igor_chernyshov" customModuleProvider="target">
+                                            <rect key="frame" x="16" y="12" width="50" height="50"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="Mx2-uc-FaF"/>
+                                                <constraint firstAttribute="width" constant="50" id="eEq-IV-hLg"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название группы" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvI-Yg-G70">
+                                            <rect key="frame" x="82" y="27" width="277" height="21"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="pvI-Yg-G70" firstAttribute="leading" secondItem="3cG-6y-LzS" secondAttribute="trailing" constant="16" id="32K-Gz-xbs"/>
+                                        <constraint firstItem="pvI-Yg-G70" firstAttribute="centerY" secondItem="H5M-IF-9eR" secondAttribute="centerY" id="ETO-p6-WE8"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="pvI-Yg-G70" secondAttribute="trailing" id="LR7-BY-5ju"/>
+                                        <constraint firstItem="3cG-6y-LzS" firstAttribute="leading" secondItem="H5M-IF-9eR" secondAttribute="leadingMargin" id="fVx-Wq-XX4"/>
+                                        <constraint firstItem="3cG-6y-LzS" firstAttribute="centerY" secondItem="H5M-IF-9eR" secondAttribute="centerY" id="sOi-N8-Zu2"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="groupNameLabel" destination="pvI-Yg-G70" id="0EJ-GM-MOA"/>
+                                    <outlet property="groupProfileImage" destination="3cG-6y-LzS" id="Wki-Nl-XgK"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Zee-Ow-pnK" id="Yo1-J7-DGx"/>
+                            <outlet property="delegate" destination="Zee-Ow-pnK" id="4Po-Po-rf3"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Группы" id="1fd-0L-yGs">
+                        <barButtonItem key="backBarButtonItem" title="Назад" id="FJ3-I9-A3k"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="uFG-DG-pJb">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="q0z-WZ-Xpp" kind="show" identifier="toAddGroupController" id="W8x-1R-IMi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wwK-cS-NEH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4111" y="582"/>
+        </scene>
+        <!--Добавить группу-->
+        <scene sceneID="4V4-HW-nMd">
+            <objects>
+                <tableViewController id="q0z-WZ-Xpp" customClass="AddGroupController" customModule="igor_chernyshov" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="75" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pe4-HT-KvZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" misplaced="YES" placeholder="Поиск по названию" translucent="NO" id="YWP-wg-YfV">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addGroupCell" rowHeight="75" id="taF-TZ-jEK" customClass="AddGroupCell" customModule="igor_chernyshov" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="75"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="taF-TZ-jEK" id="yJC-dW-uqr">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="groupProfilePhotoPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="aGG-fv-C4q" customClass="RoundedImage" customModule="igor_chernyshov" customModuleProvider="target">
+                                            <rect key="frame" x="16" y="12.5" width="50" height="50"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="E7j-Eg-Mew"/>
+                                                <constraint firstAttribute="height" constant="50" id="pzh-Q8-y6d"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название группы" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFo-Am-oc3">
+                                            <rect key="frame" x="82" y="12.5" width="277" height="21"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Количество участников" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCM-Sq-uhg">
+                                            <rect key="frame" x="82" y="41" width="277" height="21"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="aGG-fv-C4q" firstAttribute="leading" secondItem="yJC-dW-uqr" secondAttribute="leadingMargin" id="4Tb-zh-MOu"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="yFo-Am-oc3" secondAttribute="trailing" id="MQV-TB-kM6"/>
+                                        <constraint firstItem="aGG-fv-C4q" firstAttribute="centerY" secondItem="yJC-dW-uqr" secondAttribute="centerY" id="UAz-di-LmZ"/>
+                                        <constraint firstItem="yFo-Am-oc3" firstAttribute="leading" secondItem="aGG-fv-C4q" secondAttribute="trailing" constant="16" id="bFI-KG-XFi"/>
+                                        <constraint firstItem="LCM-Sq-uhg" firstAttribute="leading" secondItem="aGG-fv-C4q" secondAttribute="trailing" constant="16" id="buY-dY-77H"/>
+                                        <constraint firstItem="LCM-Sq-uhg" firstAttribute="top" secondItem="yFo-Am-oc3" secondAttribute="bottom" constant="7" id="f22-Vi-yWG"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="LCM-Sq-uhg" secondAttribute="trailing" id="voQ-zt-Ewi"/>
+                                        <constraint firstItem="yFo-Am-oc3" firstAttribute="top" secondItem="aGG-fv-C4q" secondAttribute="top" id="zPz-4c-6Eq"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="groupNameLabel" destination="yFo-Am-oc3" id="OVi-rV-aV2"/>
+                                    <outlet property="groupProfileImage" destination="aGG-fv-C4q" id="Dmg-JP-EQt"/>
+                                    <outlet property="numberOfSubscribersLabel" destination="LCM-Sq-uhg" id="oTq-uS-511"/>
+                                    <segue destination="QCd-dN-QEZ" kind="unwind" identifier="didSelectGroupToAdd" unwindAction="unwindSegueWithUnwindSegue:" id="pBv-NR-gju"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="q0z-WZ-Xpp" id="kpd-9g-DIX"/>
+                            <outlet property="delegate" destination="q0z-WZ-Xpp" id="y85-VG-0qm"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Добавить группу" id="Hyu-X8-XQ5"/>
+                    <connections>
+                        <outlet property="searchBar" destination="YWP-wg-YfV" id="IDW-L7-BaV"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OZx-AS-WL8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="QCd-dN-QEZ" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="5106" y="582"/>
+        </scene>
+        <!--Группы-->
+        <scene sceneID="hLq-Ck-Bim">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nY2-5D-sxX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Группы" image="groupsIcon" id="1GE-go-XhT">
+                        <color key="badgeColor" red="0.51372549020000002" green="0.61176470589999998" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="g5c-2J-aRk">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.32549019607843138" green="0.45882352941176469" blue="0.64313725490196072" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sh3-WV-GHv">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="Zee-Ow-pnK" kind="relationship" relationship="rootViewController" id="SjC-ql-Far"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vxc-B1-5FD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3144" y="584"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="groupProfilePhotoPlaceholder" width="100" height="99"/>
+        <image name="groupsIcon" width="36" height="26"/>
+    </resources>
+</document>
