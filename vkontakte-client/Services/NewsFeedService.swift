@@ -26,7 +26,7 @@ class NewsFeedService {
     let parameters: Parameters = [
       "filters": "post,photo",
       "max_photos": "1",
-      "count": "20"
+      "count": "50"
     ]
     
     Alamofire.request(url, parameters: parameters).responseData(queue: .global()) { [weak self] (response) in
@@ -41,6 +41,7 @@ class NewsFeedService {
         self?.news = json["response"]["items"].compactMap { News(json: $0.1) }
         self?.users = json["response"]["profiles"].compactMap { User(json: $0.1) }
         self?.groups = json["response"]["groups"].compactMap { Group(json: $0.1) }
+        self?.news = (self?.news.filter { $0.text != "" && $0.imageURL != "" })!
         self?.identifyNewsSource()
         DataService.instance.saveUsersNewsList(strongSelf.news)
       }
