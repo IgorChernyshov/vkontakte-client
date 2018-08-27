@@ -41,7 +41,7 @@ class NewsFeedService {
         self?.news = json["response"]["items"].compactMap { News(json: $0.1) }
         self?.users = json["response"]["profiles"].compactMap { User(json: $0.1) }
         self?.groups = json["response"]["groups"].compactMap { Group(json: $0.1) }
-        self?.news = (self?.news.filter { $0.text != "" && $0.imageURL != "" })!
+        self?.news = (self?.news.filter { $0.text != "" || $0.imageURL != "" })!
         self?.identifyNewsSource()
         DataService.instance.saveUsersNewsList(strongSelf.news)
       }
