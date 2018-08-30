@@ -60,4 +60,13 @@ class ConversationsService {
       post.ownerPhoto = users[index!].imageUrl
     }
   }
+  
+  func deleteConversation(withUser: String) {
+    let url = "https://api.vk.com/method/messages.deleteConversation?access_token=\(APIService.instance.authToken)&v=\(APIService.instance.apiVersion)"
+    let parameters: Parameters = [
+      "peer_id": withUser
+    ]
+    
+    Alamofire.request(url, parameters: parameters).response(queue: .global(), completionHandler: {_ in }).resume()
+  }
 }
