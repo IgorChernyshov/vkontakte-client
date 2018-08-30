@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5FBB328CE24DD2E64A6539B2 /* Pods_vkontakte_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A788C266134932A4E0F4F0 /* Pods_vkontakte_client.framework */; };
 		6D42171579FCC2ED1DD1981D /* Pods_igor_chernyshov.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 250AC81EFC8DEC758C22BD57 /* Pods_igor_chernyshov.framework */; };
 		9C0E760520D8C4F800BC50EE /* TabBarStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C0E760420D8C4F800BC50EE /* TabBarStoryboard.storyboard */; };
 		9C0E760720D8C58600BC50EE /* GroupsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C0E760620D8C58600BC50EE /* GroupsStoryboard.storyboard */; };
@@ -60,6 +61,8 @@
 		033FDC8B58CB90A92851A53A /* Pods-igor-chernyshov.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-igor-chernyshov.debug.xcconfig"; path = "Pods/Target Support Files/Pods-igor-chernyshov/Pods-igor-chernyshov.debug.xcconfig"; sourceTree = "<group>"; };
 		250AC81EFC8DEC758C22BD57 /* Pods_igor_chernyshov.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_igor_chernyshov.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C95BBA7B5382981CACB35C4 /* Pods-igor-chernyshov.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-igor-chernyshov.release.xcconfig"; path = "Pods/Target Support Files/Pods-igor-chernyshov/Pods-igor-chernyshov.release.xcconfig"; sourceTree = "<group>"; };
+		4B06364CBA7E6B7E8AEA8C79 /* Pods-vkontakte-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vkontakte-client.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vkontakte-client/Pods-vkontakte-client.debug.xcconfig"; sourceTree = "<group>"; };
+		95C0635858363565F6DBA25E /* Pods-vkontakte-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vkontakte-client.release.xcconfig"; path = "Pods/Target Support Files/Pods-vkontakte-client/Pods-vkontakte-client.release.xcconfig"; sourceTree = "<group>"; };
 		9C0E760420D8C4F800BC50EE /* TabBarStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarStoryboard.storyboard; sourceTree = "<group>"; };
 		9C0E760620D8C58600BC50EE /* GroupsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupsStoryboard.storyboard; sourceTree = "<group>"; };
 		9C0E760820D8C5B600BC50EE /* FriendsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FriendsStoryboard.storyboard; sourceTree = "<group>"; };
@@ -108,6 +111,7 @@
 		9CFA503A21109FE80080C9E0 /* SetAddGroupsProfileImageToRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAddGroupsProfileImageToRow.swift; sourceTree = "<group>"; };
 		9CFA503C2110AF040080C9E0 /* SetNewsFeedTextCellImagesToRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNewsFeedTextCellImagesToRow.swift; sourceTree = "<group>"; };
 		9CFA503E2110B0110080C9E0 /* SetNewsFeedTextAndPhotoCellOwnerProfileImageToRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNewsFeedTextAndPhotoCellOwnerProfileImageToRow.swift; sourceTree = "<group>"; };
+		E7A788C266134932A4E0F4F0 /* Pods_vkontakte_client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vkontakte_client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D42171579FCC2ED1DD1981D /* Pods_igor_chernyshov.framework in Frameworks */,
+				5FBB328CE24DD2E64A6539B2 /* Pods_vkontakte_client.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +132,8 @@
 			children = (
 				033FDC8B58CB90A92851A53A /* Pods-igor-chernyshov.debug.xcconfig */,
 				2C95BBA7B5382981CACB35C4 /* Pods-igor-chernyshov.release.xcconfig */,
+				4B06364CBA7E6B7E8AEA8C79 /* Pods-vkontakte-client.debug.xcconfig */,
+				95C0635858363565F6DBA25E /* Pods-vkontakte-client.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -247,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				250AC81EFC8DEC758C22BD57 /* Pods_igor_chernyshov.framework */,
+				E7A788C266134932A4E0F4F0 /* Pods_vkontakte_client.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -330,7 +338,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-igor-chernyshov/Pods-igor-chernyshov-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-vkontakte-client/Pods-vkontakte-client-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -345,7 +353,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-igor-chernyshov/Pods-igor-chernyshov-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vkontakte-client/Pods-vkontakte-client-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		661F286A2C920CE0B27ADE15 /* [CP] Check Pods Manifest.lock */ = {
@@ -359,7 +367,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-igor-chernyshov-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-vkontakte-client-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -545,7 +553,7 @@
 		};
 		9C7FE88920CF8CE000E81DC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 033FDC8B58CB90A92851A53A /* Pods-igor-chernyshov.debug.xcconfig */;
+			baseConfigurationReference = 4B06364CBA7E6B7E8AEA8C79 /* Pods-vkontakte-client.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -566,7 +574,7 @@
 		};
 		9C7FE88A20CF8CE000E81DC8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2C95BBA7B5382981CACB35C4 /* Pods-igor-chernyshov.release.xcconfig */;
+			baseConfigurationReference = 95C0635858363565F6DBA25E /* Pods-vkontakte-client.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
