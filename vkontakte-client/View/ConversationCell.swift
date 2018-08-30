@@ -13,6 +13,8 @@ class ConversationCell: UITableViewCell {
   @IBOutlet weak var profilePhotoImage: RoundedImage!
   @IBOutlet weak var userNameLabel: UILabel!
   @IBOutlet weak var lastMessageLabel: UILabel!
+  @IBOutlet weak var unreadBadgeView: UIView!
+  @IBOutlet weak var unreadBadgeLabel: UILabel!
   
   private let queue: OperationQueue = {
     let queue = OperationQueue()
@@ -29,6 +31,10 @@ class ConversationCell: UITableViewCell {
     
     userNameLabel.text = conversation.ownerName
     lastMessageLabel.text = conversation.text
+    if conversation.unreadCount > 0 {
+      unreadBadgeLabel.text = String(conversation.unreadCount)
+      unreadBadgeView.isHidden = false
+    }
   }
   
   override func prepareForReuse() {
@@ -36,6 +42,7 @@ class ConversationCell: UITableViewCell {
     profilePhotoImage.image = UIImage(named: "usersPhotoPlaceholder")
     userNameLabel.text = ""
     lastMessageLabel.text = ""
+    unreadBadgeView.isHidden = true
   }
   
 }
