@@ -17,8 +17,12 @@ class NewsFeedViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.estimatedRowHeight = 600; // Fixes bug when table view jumps up on tableView.reloadData() call
-    NewsFeedService.instance.requestUsersNewsFeed()
     pairTableAndRealm()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    NewsFeedService.instance.requestUsersNewsFeed()
   }
   
   private func pairTableAndRealm() {

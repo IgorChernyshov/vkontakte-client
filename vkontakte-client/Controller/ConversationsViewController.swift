@@ -16,8 +16,12 @@ class ConversationsViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    ConversationsService.instance.requestUsersConversations()
     pairTableAndRealm()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    ConversationsService.instance.requestUsersConversations()
   }
   
   private func pairTableAndRealm() {
@@ -40,6 +44,27 @@ class ConversationsViewController: UITableViewController {
     })
   }
   
+  // Send selected user's id to the next controller
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "toMessages" {
+      let messagesViewController = segue.destination as! MessagesViewController
+      let indexPath = tableView.indexPathForSelectedRow!
+      messagesViewController.conversationWithUserID = conversations[indexPath.row].withUserId
+    }
+  }
+  
+  private func showDeleteConfirmationForm(id: String) {
+    let alertController = UIAlertController(title: "Удалить беседу?", message: "История переписки будет удалена навсегда", preferredStyle: .alert)
+    let confirmAction = UIAlertAction(title: "Удалить", style: .destructive) { action in
+      ConversationsService.instance.deleteConversation(withUser: id)
+      ConversationsService.instance.requestUsersConversations()
+    }
+    alertController.addAction(confirmAction)
+    let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+    alertController.addAction(cancelAction)
+    present(alertController, animated: true, completion: nil)
+  }
+  
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if conversations.count == 0 {
       self.tableView.separatorStyle = .none
@@ -57,13 +82,25 @@ class ConversationsViewController: UITableViewController {
     return cell
   }
   
-  // Send selected user's id to the next controller
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "toMessages" {
-      let messagesViewController = segue.destination as! MessagesViewController
-      let indexPath = tableView.indexPathForSelectedRow!
-      messagesViewController.conversationWithUserID = conversations[indexPath.row].withUserId
+  override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    return true
+  }
+  
+  override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    return UITableViewCellEditingStyle.none // This turns off default editing style because we have a custom setup
+  }
+  
+  override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    var action = [UITableViewRowAction]()
+    let deleteAction = UITableViewRowAction(style: .destructive, title: "УДАЛИТЬ") { [weak self] (rowAction, indexPath) in
+      guard let strongSelf = self else { return }
+      let id = String(strongSelf.conversations[indexPath.row].withUserId)
+      self?.showDeleteConfirmationForm(id: id)
     }
+    deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+    action = [deleteAction]
+    
+    return action
   }
   
 }

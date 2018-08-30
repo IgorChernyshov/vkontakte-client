@@ -16,8 +16,12 @@ class MyGroupsController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    APIService.instance.requestUsersGroups()
     pairTableAndRealm()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    APIService.instance.requestUsersGroups()
   }
   
   private func pairTableAndRealm() {

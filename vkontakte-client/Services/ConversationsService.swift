@@ -19,12 +19,12 @@ class ConversationsService {
   private var conversations = [Conversation]()
   private var users = [User]()
   
-  // Get 30 last conversations
+  // Get 50 last conversations
   func requestUsersConversations() {
     let url = "https://api.vk.com/method/messages.getConversations?access_token=\(APIService.instance.authToken)&v=\(APIService.instance.apiVersion)"
     let parameters: Parameters = [
       "extended": "1",
-      "count": "30"
+      "count": "50"
     ]
     
     Alamofire.request(url, parameters: parameters).responseData(queue: .global()) { [weak self] (response) in
@@ -39,7 +39,8 @@ class ConversationsService {
         self?.conversations = json["response"]["items"].compactMap { Conversation(json: $0.1) }
         self?.users = json["response"]["profiles"].compactMap { User(json: $0.1) }
         // Remove conversations of type "chat"
-        self?.conversations = (self?.conversations.filter { $0.chatType != "chat" })!
+        self?.conversations = strongSelf.conversations.filter { $0.chatType != "chat" }
+        self?.conversations = strongSelf.conversations.filter { $0.chatType != "group" }
         self?.identifyConversationSource()
         DataService.instance.saveUsersConversations(strongSelf.conversations)
       }
@@ -58,5 +59,14 @@ class ConversationsService {
       post.ownerName = "\(users[index!].firstName) \(users[index!].lastName)"
       post.ownerPhoto = users[index!].imageUrl
     }
+  }
+  
+  func deleteConversation(withUser: String) {
+    let url = "https://api.vk.com/method/messages.deleteConversation?access_token=\(APIService.instance.authToken)&v=\(APIService.instance.apiVersion)"
+    let parameters: Parameters = [
+      "peer_id": withUser
+    ]
+    
+    Alamofire.request(url, parameters: parameters).response(queue: .global(), completionHandler: {_ in }).resume()
   }
 }
