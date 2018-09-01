@@ -133,4 +133,14 @@ class APIService {
     Alamofire.request(url, parameters: parameters).response(queue: .global(), completionHandler: {_ in }).resume()
   }
   
+  func leaveGroup(id: Int) {
+    let url = "https://api.vk.com/method/groups.leave?access_token=\(authToken)&v=\(apiVersion)"
+    let groupIDAsString = String(id)
+    let parameters: Parameters = [
+      "group_id": groupIDAsString
+    ]
+    
+    Alamofire.request(url, parameters: parameters).response(queue: .global(), completionHandler: {_ in }).resume()
+  }
+  
 }

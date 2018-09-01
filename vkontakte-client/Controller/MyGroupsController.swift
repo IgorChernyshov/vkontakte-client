@@ -65,22 +65,41 @@ class MyGroupsController: UITableViewController {
   override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
       return true
   }
-
-  override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-    if editingStyle == .delete {
-      let group = groups[indexPath.row]
+  
+  override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    var action = [UITableViewRowAction]()
+    let deleteAction = UITableViewRowAction(style: .destructive, title: "Отписаться") { [weak self] (rowAction, indexPath) in
+      guard let strongSelf = self else { return }
+      let group = strongSelf.groups[indexPath.row]
+      self?.showUnsubscribeConfirmationForm(id: group.id, indexPath: indexPath)
+    }
+    deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+    action = [deleteAction]
+    
+    return action
+  }
+  
+  private func showUnsubscribeConfirmationForm(id: Int, indexPath: IndexPath) {
+    let alertController = UIAlertController(title: "Выйти от группы?", message: nil, preferredStyle: .alert)
+    let confirmAction = UIAlertAction(title: "Удалить", style: .destructive) { [weak self] action in
+      APIService.instance.leaveGroup(id: id)
+      let group = self?.groups[indexPath.row]
       do {
         guard let realm = try? Realm() else {
           return
         }
         try realm.write {
-          realm.delete(group)
+          realm.delete(group!)
         }
-        tableView.deleteRows(at: [indexPath], with: .fade)
+        self?.tableView.deleteRows(at: [indexPath], with: .fade)
       } catch {
         print(error.localizedDescription)
       }
     }
+    alertController.addAction(confirmAction)
+    let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+    alertController.addAction(cancelAction)
+    present(alertController, animated: true, completion: nil)
   }
   
   @IBAction func unwindSegue(unwindSegue: UIStoryboardSegue) {

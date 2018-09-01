@@ -92,7 +92,7 @@ class ConversationsViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
     var action = [UITableViewRowAction]()
-    let deleteAction = UITableViewRowAction(style: .destructive, title: "УДАЛИТЬ") { [weak self] (rowAction, indexPath) in
+    let deleteAction = UITableViewRowAction(style: .destructive, title: "Удалить") { [weak self] (rowAction, indexPath) in
       guard let strongSelf = self else { return }
       let id = String(strongSelf.conversations[indexPath.row].withUserId)
       self?.showDeleteConfirmationForm(id: id)
