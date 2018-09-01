@@ -109,8 +109,6 @@ class APIService {
       do {
         let json = try JSON(data: data)
         var group = json["response"]["items"].compactMap { Group(json: $0.1) }
-        // The part below works for user's actual groups but will not work for
-        // groups that we "add" because we do not add them for real
         for (index, checkedGroup) in group.enumerated() {
           if checkedGroup.isMember {
             group.remove(at: index)
