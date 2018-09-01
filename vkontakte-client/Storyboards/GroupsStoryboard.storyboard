@@ -119,9 +119,13 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIQ-f5-tph">
+                                        <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIQ-f5-tph">
                                             <rect key="frame" x="334" y="25" width="25" height="25"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" image="addGroupButton"/>
+                                            <connections>
+                                                <action selector="joinGroupButtonWasPressed:" destination="taF-TZ-jEK" eventType="touchUpInside" id="eg6-TO-CeO"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -140,6 +144,7 @@
                                 <connections>
                                     <outlet property="groupNameLabel" destination="yFo-Am-oc3" id="OVi-rV-aV2"/>
                                     <outlet property="groupProfileImage" destination="aGG-fv-C4q" id="Dmg-JP-EQt"/>
+                                    <outlet property="joinGroupButton" destination="TIQ-f5-tph" id="Wj6-Uv-JOk"/>
                                     <outlet property="numberOfSubscribersLabel" destination="LCM-Sq-uhg" id="oTq-uS-511"/>
                                     <segue destination="QCd-dN-QEZ" kind="unwind" identifier="didSelectGroupToAdd" unwindAction="unwindSegueWithUnwindSegue:" id="pBv-NR-gju"/>
                                 </connections>

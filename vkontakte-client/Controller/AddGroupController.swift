@@ -36,10 +36,6 @@ class AddGroupController: UITableViewController {
     return cell
   }
   
-  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    DataService.instance.subscribeUserToGroup(groupsList[indexPath.row])
-  }
-  
 }
 
 extension AddGroupController: UISearchBarDelegate {
