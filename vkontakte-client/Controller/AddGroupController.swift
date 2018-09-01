@@ -21,6 +21,7 @@ class AddGroupController: UITableViewController {
   }
   
   @objc func userHasJoinedGroup(_ notification: Notification) {
+    // TODO: Some pause to show updated information about groups right after subscription
     navigationController?.popViewController(animated: true)
   }
   
