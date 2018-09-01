@@ -16,6 +16,7 @@ class AddGroupCell: UITableViewCell {
   @IBOutlet weak var joinGroupButton: UIButton!
   private var id: Int!
   private var isMember: Bool!
+  private var isClosed: Bool!
   
   private let queue: OperationQueue = {
     let queue = OperationQueue()
@@ -26,12 +27,17 @@ class AddGroupCell: UITableViewCell {
   func configure(_ group: Group, cell: AddGroupCell, indexPath: IndexPath, tableView: UITableView) {
     groupNameLabel.text = group.name
     numberOfSubscribersLabel.text = "Участников: \(group.membersCount)"
-    id = cell.id
-    isMember = cell.isMember
-    if isMember {
-      joinGroupButton.setImage(#imageLiteral(resourceName: "groupWasJoined"), for: .normal)
+    id = group.id
+    isMember = group.isMember
+    isClosed = group.isClosed
+    if !isClosed {
+      if isMember {
+        joinGroupButton.setImage(#imageLiteral(resourceName: "groupWasJoined"), for: .normal)
+      } else {
+        joinGroupButton.setImage(#imageLiteral(resourceName: "addGroupButton"), for: .normal)
+      }
     } else {
-      joinGroupButton.setImage(#imageLiteral(resourceName: "addGroupButton"), for: .normal)
+      joinGroupButton.isHidden = true
     }
     
     let getCachedImage = GetCachedImage(url: group.imageUrl)
@@ -46,6 +52,7 @@ class AddGroupCell: UITableViewCell {
       APIService.instance.joinGroup(id: id)
       isMember = true
       joinGroupButton.setImage(#imageLiteral(resourceName: "groupWasJoined"), for: .normal)
+      APIService.instance.requestUsersGroups()
     }
   }
   
@@ -53,6 +60,7 @@ class AddGroupCell: UITableViewCell {
     super.prepareForReuse()
     groupProfileImage.image = UIImage(named: "groupProfilePhotoPlaceholder")
     joinGroupButton.setImage(#imageLiteral(resourceName: "addGroupButton"), for: .normal)
+    joinGroupButton.isHidden = false
   }
   
 }

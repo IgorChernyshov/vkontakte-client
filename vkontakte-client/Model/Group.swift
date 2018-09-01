@@ -17,6 +17,7 @@ class Group: Object {
   @objc dynamic var imageUrl = ""
   @objc dynamic var membersCount = 0
   @objc dynamic var isMember = false
+  @objc dynamic var isClosed = false
   
   override static func primaryKey() -> String? {
     return "id"
@@ -30,6 +31,7 @@ class Group: Object {
       self.imageUrl = json["photo_50"].stringValue
       self.membersCount = json["members_count"].intValue
       self.isMember = json["is_member"].boolValue
+      self.isClosed = json["is_closed"].boolValue
     }
   }
   
