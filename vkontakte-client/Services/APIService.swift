@@ -109,8 +109,6 @@ class APIService {
       do {
         let json = try JSON(data: data)
         var group = json["response"]["items"].compactMap { Group(json: $0.1) }
-        // The part below works for user's actual groups but will not work for
-        // groups that we "add" because we do not add them for real
         for (index, checkedGroup) in group.enumerated() {
           if checkedGroup.isMember {
             group.remove(at: index)
@@ -121,6 +119,26 @@ class APIService {
         print(error.localizedDescription)
       }
     }.resume()
+  }
+  
+  func joinGroup(id: Int) {
+    let url = "https://api.vk.com/method/groups.join?access_token=\(authToken)&v=\(apiVersion)"
+    let groupIDAsString = String(id)
+    let parameters: Parameters = [
+      "group_id": groupIDAsString
+    ]
+    
+    Alamofire.request(url, parameters: parameters).response(queue: .global(), completionHandler: {_ in }).resume()
+  }
+  
+  func leaveGroup(id: Int) {
+    let url = "https://api.vk.com/method/groups.leave?access_token=\(authToken)&v=\(apiVersion)"
+    let groupIDAsString = String(id)
+    let parameters: Parameters = [
+      "group_id": groupIDAsString
+    ]
+    
+    Alamofire.request(url, parameters: parameters).response(queue: .global(), completionHandler: {_ in }).resume()
   }
   
 }

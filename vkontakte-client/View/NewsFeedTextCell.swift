@@ -17,8 +17,8 @@ class NewsFeedTextCell: UITableViewCell {
   @IBOutlet weak var commentsButton: UIButton!
   @IBOutlet weak var repostsButton: UIButton!
   @IBOutlet weak var viewsLabel: UILabel!
-  var post_id: Int!
-  var owner_id: Int!
+  private var post_id: Int!
+  private var owner_id: Int!
   
   private let queue: OperationQueue = {
     let queue = OperationQueue()

@@ -17,6 +17,12 @@ class AddGroupController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     searchBar.delegate = self
+    NotificationCenter.default.addObserver(self, selector: #selector(userHasJoinedGroup(_:)), name: NSNotification.Name("userHasJoinedGroup"), object: nil)
+  }
+  
+  @objc func userHasJoinedGroup(_ notification: Notification) {
+    // TODO: Some pause to show updated information about groups right after subscription
+    navigationController?.popViewController(animated: true)
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,10 +40,6 @@ class AddGroupController: UITableViewController {
     }
     cell.configure(groupsList[indexPath.row], cell: cell, indexPath: indexPath, tableView: tableView)
     return cell
-  }
-  
-  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    DataService.instance.subscribeUserToGroup(groupsList[indexPath.row])
   }
   
 }

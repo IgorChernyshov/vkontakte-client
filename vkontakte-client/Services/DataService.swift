@@ -60,19 +60,6 @@ class DataService {
     }
   }
   
-  func subscribeUserToGroup(_ group: Group) {
-    do {
-      let realm = try Realm()
-      let currentGroups = realm.objects(Group.self)
-      try realm.write {
-        realm.add(currentGroups, update: true)
-        realm.add(group)
-      }
-    } catch {
-      print(error.localizedDescription)
-    }
-  }
-  
   func saveUsersNewsList(_ news: [News]) {
     do {
       let realm = try Realm()
