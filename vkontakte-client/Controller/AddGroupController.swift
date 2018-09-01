@@ -17,6 +17,11 @@ class AddGroupController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     searchBar.delegate = self
+    NotificationCenter.default.addObserver(self, selector: #selector(userHasJoinedGroup(_:)), name: NSNotification.Name("userHasJoinedGroup"), object: nil)
+  }
+  
+  @objc func userHasJoinedGroup(_ notification: Notification) {
+    navigationController?.popViewController(animated: true)
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

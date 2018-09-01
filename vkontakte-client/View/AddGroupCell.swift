@@ -30,13 +30,7 @@ class AddGroupCell: UITableViewCell {
     id = group.id
     isMember = group.isMember
     isClosed = group.isClosed
-    if !isClosed {
-      if isMember {
-        joinGroupButton.setImage(#imageLiteral(resourceName: "groupWasJoined"), for: .normal)
-      } else {
-        joinGroupButton.setImage(#imageLiteral(resourceName: "addGroupButton"), for: .normal)
-      }
-    } else {
+    if isClosed {
       joinGroupButton.isHidden = true
     }
     
@@ -50,16 +44,13 @@ class AddGroupCell: UITableViewCell {
   @IBAction func joinGroupButtonWasPressed(_ sender: Any) {
     if !isMember {
       APIService.instance.joinGroup(id: id)
-      isMember = true
-      joinGroupButton.setImage(#imageLiteral(resourceName: "groupWasJoined"), for: .normal)
-      APIService.instance.requestUsersGroups()
+      NotificationCenter.default.post(name: NSNotification.Name("userHasJoinedGroup"), object: nil)
     }
   }
   
   override func prepareForReuse() {
     super.prepareForReuse()
     groupProfileImage.image = UIImage(named: "groupProfilePhotoPlaceholder")
-    joinGroupButton.setImage(#imageLiteral(resourceName: "addGroupButton"), for: .normal)
     joinGroupButton.isHidden = false
   }
   
