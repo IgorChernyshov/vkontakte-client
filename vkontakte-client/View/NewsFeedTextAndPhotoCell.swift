@@ -18,6 +18,8 @@ class NewsFeedTextAndPhotoCell: UITableViewCell {
   @IBOutlet weak var commentsButton: UIButton!
   @IBOutlet weak var repostsButton: UIButton!
   @IBOutlet weak var viewsLabel: UILabel!
+  @IBOutlet weak var attachedImageWidthConstraint: NSLayoutConstraint!
+  @IBOutlet weak var attachedImageHeightConstraint: NSLayoutConstraint!
   private var post_id: Int!
   private var owner_id: Int!
   
@@ -28,7 +30,6 @@ class NewsFeedTextAndPhotoCell: UITableViewCell {
   }()
   
   func configure(_ news: News, cell: NewsFeedTextAndPhotoCell, indexPath: IndexPath, tableView: UITableView) {
-    attachedPhotoImage.isHidden = false
     // Get owner's photo
     let getCachedProfileImage = GetCachedImage(url: news.ownerPhoto)
     let setNewsFeedTextAndPhotoCellOwnerProfile = SetNewsFeedTextAndPhotoCellOwnerProfileImageToRow(cell: cell, indexPath: indexPath, tableView: tableView)
@@ -41,7 +42,12 @@ class NewsFeedTextAndPhotoCell: UITableViewCell {
     setNewsFeedTextAndPhotoCellAttachedPhoto.addDependency(getCachedAttachedImage)
     queue.addOperation(getCachedAttachedImage)
     OperationQueue.main.addOperation(setNewsFeedTextAndPhotoCellAttachedPhoto)
-    
+    // Fit attached photo into cell based on a screen size
+    let screenSize = UIScreen.main.bounds
+    attachedImageWidthConstraint.constant = screenSize.width - 30
+    let aspectRatio = attachedImageWidthConstraint.constant / CGFloat(news.imageWidth)
+    attachedImageHeightConstraint.constant = CGFloat(news.imageHeight) * aspectRatio
+    // Set the rest of elements in a cell
     ownerName.text = news.ownerName
     newsTextLabel.text = news.text
     likesButton.setTitle(" \(news.likesCount)", for: .normal)
