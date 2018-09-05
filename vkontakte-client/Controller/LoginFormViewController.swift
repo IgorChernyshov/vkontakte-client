@@ -63,7 +63,18 @@ extension LoginFormViewController: WKNavigationDelegate {
     
     APIService.instance.authToken = parameters["access_token"]!
     decisionHandler(.cancel)
+    
+    // Update all the info before login has finished
+    refreshUsersData()
+    
     performSegue(withIdentifier: "userHasLoggedIn", sender: nil)
+  }
+  
+  private func refreshUsersData() {
+    APIService.instance.requestUsersFriendsList()
+    APIService.instance.requestUsersGroups()
+    NewsFeedService.instance.requestUsersNewsFeed()
+    ConversationsService.instance.requestUsersConversations()
   }
   
   // Provide web browser navigation state to user
