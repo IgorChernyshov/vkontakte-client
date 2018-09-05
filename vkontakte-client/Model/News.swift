@@ -18,6 +18,8 @@ class News: Object {
   @objc dynamic var ownerPhoto = ""
   @objc dynamic var text = ""
   @objc dynamic var imageURL = ""
+  @objc dynamic var imageWidth = 0
+  @objc dynamic var imageHeight = 0
   @objc dynamic var likesCount = 0
   @objc dynamic var userLikes = 0
   @objc dynamic var commentsCount = 0
@@ -37,12 +39,16 @@ class News: Object {
         for size in json["attachments"][0]["photo"]["sizes"].arrayValue {
           if size["type"].stringValue == "x" {
             self.imageURL = size["url"].stringValue
+            self.imageWidth = size["width"].intValue
+            self.imageHeight = size["height"].intValue
           }
         }
       } else {
         for size in json["photos"]["items"][0]["sizes"].arrayValue {
           if size["type"].stringValue == "x" {
             self.imageURL = size["url"].stringValue
+            self.imageWidth = size["width"].intValue
+            self.imageHeight = size["height"].intValue
           }
         }
       }

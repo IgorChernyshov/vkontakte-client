@@ -16,7 +16,7 @@ class NewsFeedViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    tableView.estimatedRowHeight = 600; // Fixes bug when table view jumps up on tableView.reloadData() call
+    tableView.estimatedRowHeight = 300; // Fixes bug when table view jumps up on tableView.reloadData() call
     pairTableAndRealm()
   }
   
@@ -56,15 +56,11 @@ class NewsFeedViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if news[indexPath.row].imageURL.isEmpty {
-      guard let cell = tableView.dequeueReusableCell(withIdentifier: "newsFeedTextCell") as? NewsFeedTextCell else {
-        return UITableViewCell()
-      }
+      guard let cell = tableView.dequeueReusableCell(withIdentifier: "newsFeedTextCell") as? NewsFeedTextCell else { return UITableViewCell() }
       cell.configure(news[indexPath.row], cell: cell, indexPath: indexPath, tableView: tableView)
       return cell
     } else {
-      guard let cell = tableView.dequeueReusableCell(withIdentifier: "newsFeedTextAndPhotoCell") as? NewsFeedTextAndPhotoCell else {
-        return UITableViewCell()
-      }
+      guard let cell = tableView.dequeueReusableCell(withIdentifier: "newsFeedTextAndPhotoCell") as? NewsFeedTextAndPhotoCell else { return UITableViewCell() }
       cell.configure(news[indexPath.row], cell: cell, indexPath: indexPath, tableView: tableView)
       return cell
     }
