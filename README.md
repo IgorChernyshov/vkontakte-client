@@ -22,5 +22,5 @@ It also utilizes advanced features learned during the second course "Speeding up
 + Multi-thread development 
 + Grand Central Dispatch
 + File Manager and image caching
-+ Optimized UITableView and UICollectionView (removed heave opearations from views, fixed blended layers and misalligned images)
++ Optimized UITableView and UICollectionView (removed heavy operations from views, fixed blended layers and misalligned images)
 + Patterns: Observer, Singleton, Delegate
