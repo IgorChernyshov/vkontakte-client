@@ -11,15 +11,29 @@ import RealmSwift
 
 class MyFriendsPhotosController: UICollectionViewController {
   
-  var usersId = ""
+  var userId = ""
   private var photos: List<Photo>!
   private var token: NotificationToken?
   
+  private let refreshControl = UIRefreshControl()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    APIService.instance.requestUsersProfilePhotos(userId: usersId)
+    addRefreshControl()
+    APIService.instance.requestUsersProfilePhotos(userId: userId)
     pairCollectionViewAndRealm()
     calculatePhotosSize()
+  }
+  
+  private func addRefreshControl() {
+    collectionView?.addSubview(refreshControl)
+    refreshControl.tintColor = #colorLiteral(red: 0.4235294118, green: 0.537254902, blue: 0.6862745098, alpha: 1)
+    refreshControl.addTarget(self, action: #selector(refreshUsersPhotos(_:)), for: .valueChanged)
+  }
+  
+  @objc private func refreshUsersPhotos(_ sender: Any) {
+    self.refreshControl.endRefreshing()
+    APIService.instance.requestUsersProfilePhotos(userId: userId)
   }
   
   private func calculatePhotosSize() {
@@ -35,7 +49,7 @@ class MyFriendsPhotosController: UICollectionViewController {
   }
   
   private func pairCollectionViewAndRealm() {
-    guard let realm = try? Realm(), let user = realm.object(ofType: User.self, forPrimaryKey: Int(usersId)) else {
+    guard let realm = try? Realm(), let user = realm.object(ofType: User.self, forPrimaryKey: Int(userId)) else {
       return
     }
     photos = user.photos

@@ -16,8 +16,21 @@ class MyFriendsController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    addRefreshControl()
     APIService.instance.requestUsersFriendsList()
     pairTableAndRealm()
+  }
+  
+  private func addRefreshControl() {
+    refreshControl = UIRefreshControl()
+    tableView.addSubview(refreshControl!)
+    refreshControl?.tintColor = #colorLiteral(red: 0.4235294118, green: 0.537254902, blue: 0.6862745098, alpha: 1)
+    refreshControl?.addTarget(self, action: #selector(refreshFriendsList(_:)), for: .valueChanged)
+  }
+  
+  @objc private func refreshFriendsList(_ sender: Any) {
+    APIService.instance.requestUsersFriendsList()
+    self.refreshControl?.endRefreshing()
   }
   
   private func pairTableAndRealm() {
@@ -62,7 +75,7 @@ class MyFriendsController: UITableViewController {
     if segue.identifier == "toFriendsPhotos" {
       let myFriendsPhotosController = segue.destination as! MyFriendsPhotosController
       let indexPath = tableView.indexPathForSelectedRow!
-      myFriendsPhotosController.usersId = "\(users[indexPath.row].id)"
+      myFriendsPhotosController.userId = "\(users[indexPath.row].id)"
     }
   }
   
