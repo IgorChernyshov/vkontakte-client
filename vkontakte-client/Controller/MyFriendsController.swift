@@ -16,12 +16,8 @@ class MyFriendsController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    pairTableAndRealm()
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
     APIService.instance.requestUsersFriendsList()
+    pairTableAndRealm()
   }
   
   private func pairTableAndRealm() {

@@ -17,7 +17,12 @@ class MyFriendsPhotosController: UICollectionViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    APIService.instance.requestUsersProfilePhotos(userId: usersId)
     pairCollectionViewAndRealm()
+    calculatePhotosSize()
+  }
+  
+  private func calculatePhotosSize() {
     // Set cells size automatically
     let flow = self.collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
     let itemSpacing: CGFloat = 3
@@ -27,11 +32,6 @@ class MyFriendsPhotosController: UICollectionViewController {
     flow.itemSize = CGSize(width: floor(width/itemsInOneLine), height: width/itemsInOneLine)
     flow.minimumInteritemSpacing = 3
     flow.minimumLineSpacing = 3
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    APIService.instance.requestUsersProfilePhotos(userId: usersId)
   }
   
   private func pairCollectionViewAndRealm() {

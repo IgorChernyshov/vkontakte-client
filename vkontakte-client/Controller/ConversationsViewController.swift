@@ -16,12 +16,8 @@ class ConversationsViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    pairTableAndRealm()
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
     ConversationsService.instance.requestUsersConversations()
+    pairTableAndRealm()
   }
   
   private func pairTableAndRealm() {
