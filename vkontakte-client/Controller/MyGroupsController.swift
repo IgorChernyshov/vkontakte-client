@@ -16,12 +16,21 @@ class MyGroupsController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    addRefreshControl()
+    APIService.instance.requestUsersGroups()
     pairTableAndRealm()
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
+  private func addRefreshControl() {
+    refreshControl = UIRefreshControl()
+    tableView.addSubview(refreshControl!)
+    refreshControl?.tintColor = #colorLiteral(red: 0.4235294118, green: 0.537254902, blue: 0.6862745098, alpha: 1)
+    refreshControl?.addTarget(self, action: #selector(refreshGroupsList(_:)), for: .valueChanged)
+  }
+  
+  @objc private func refreshGroupsList(_ sender: Any) {
     APIService.instance.requestUsersGroups()
+    self.refreshControl?.endRefreshing()
   }
   
   private func pairTableAndRealm() {

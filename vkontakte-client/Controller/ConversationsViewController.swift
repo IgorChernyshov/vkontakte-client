@@ -16,12 +16,21 @@ class ConversationsViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    addRefreshControl()
+    ConversationsService.instance.requestUsersConversations()
     pairTableAndRealm()
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
+  private func addRefreshControl() {
+    refreshControl = UIRefreshControl()
+    tableView.addSubview(refreshControl!)
+    refreshControl?.tintColor = #colorLiteral(red: 0.4235294118, green: 0.537254902, blue: 0.6862745098, alpha: 1)
+    refreshControl?.addTarget(self, action: #selector(refreshConversationsList(_:)), for: .valueChanged)
+  }
+  
+  @objc private func refreshConversationsList(_ sender: Any) {
     ConversationsService.instance.requestUsersConversations()
+    self.refreshControl?.endRefreshing()
   }
   
   private func pairTableAndRealm() {
