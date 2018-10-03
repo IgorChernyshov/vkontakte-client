@@ -27,18 +27,64 @@ class SetImageToRow<T>: Operation {
       let image = getCachedImage.outputImage else {
         return
     }
+    // Check what type of cell requests the image
     switch T.self {
     case is MyFriendsCell.Type:
       guard let cell = cell as? MyFriendsCell else { return }
-      setFriendsProfile(image: image, cell: cell, tableView: tableView)
+      setFriendsProfileImage(image: image, cell: cell, tableView: tableView)
+    case is MyGroupsCell.Type:
+      guard let cell = cell as? MyGroupsCell else { return }
+      setGroupsProfileImage(image: image, cell: cell, tableView: tableView)
+    case is AddGroupCell.Type:
+      guard let cell = cell as? AddGroupCell else { return }
+      setAddGroupsProfileImage(image: image, cell: cell, tableView: tableView)
+    case is NewsFeedTextCell.Type:
+      guard let cell = cell as? NewsFeedTextCell else { return }
+      setNewsFeedTextCellImage(image: image, cell: cell, tableView: tableView)
+    case is ConversationCell.Type:
+      guard let cell = cell as? ConversationCell else { return }
+      setConversationOwnerPhotoImage(image: image, cell: cell, tableView: tableView)
+    case is NewsFeedTextAndPhotoCell.Type:
+      guard let cell = cell as? NewsFeedTextAndPhotoCell else { return }
+      setNewsFeedTextAndImageCellImage(image: image, cell: cell, tableView: tableView)
     default:
       return
     }
   }
   
-  private func setFriendsProfile(image: UIImage, cell: MyFriendsCell, tableView: UITableView) {
+  private func setFriendsProfileImage(image: UIImage, cell: MyFriendsCell, tableView: UITableView) {
     if let newIndexPath = tableView.indexPath(for: cell), newIndexPath == indexPath {
       cell.profilePhotoImage.image = image
+    }
+  }
+  
+  private func setGroupsProfileImage(image: UIImage, cell: MyGroupsCell, tableView: UITableView) {
+    if let newIndexPath = tableView.indexPath(for: cell), newIndexPath == indexPath {
+      cell.groupProfileImage.image = image
+    }
+  }
+  
+  private func setAddGroupsProfileImage(image: UIImage, cell: AddGroupCell, tableView: UITableView) {
+    if let newIndexPath = tableView.indexPath(for: cell), newIndexPath == indexPath {
+      cell.groupProfileImage.image = image
+    }
+  }
+  
+  private func setNewsFeedTextCellImage(image: UIImage, cell: NewsFeedTextCell, tableView: UITableView) {
+    if let newIndexPath = tableView.indexPath(for: cell), newIndexPath == indexPath {
+      cell.ownerPhoto.image = image
+    }
+  }
+  
+  private func setConversationOwnerPhotoImage(image: UIImage, cell: ConversationCell, tableView: UITableView) {
+    if let newIndexPath = tableView.indexPath(for: cell), newIndexPath == indexPath {
+      cell.profilePhotoImage.image = image
+    }
+  }
+  
+  private func setNewsFeedTextAndImageCellImage(image: UIImage, cell: NewsFeedTextAndPhotoCell, tableView: UITableView) {
+    if let newIndexPath = tableView.indexPath(for: cell), newIndexPath == indexPath {
+      cell.ownerPhoto.image = image
     }
   }
   

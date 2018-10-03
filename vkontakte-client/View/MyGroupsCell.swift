@@ -22,7 +22,7 @@ class MyGroupsCell: UITableViewCell {
   func configure(_ group: Group, cell: MyGroupsCell, indexPath: IndexPath, tableView: UITableView) {
     groupNameLabel.text = group.name
     let getCachedImage = GetCachedImage(url: group.imageUrl)
-    let setGroupsProfileImageToRow = SetGroupsProfileImageToRow(cell: cell, indexPath: indexPath, tableView: tableView)
+    let setGroupsProfileImageToRow = SetImageToRow(cell: cell, indexPath: indexPath, tableView: tableView)
     setGroupsProfileImageToRow.addDependency(getCachedImage)
     queue.addOperation(getCachedImage)
     OperationQueue.main.addOperation(setGroupsProfileImageToRow)

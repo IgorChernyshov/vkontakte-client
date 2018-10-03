@@ -35,7 +35,7 @@ class AddGroupCell: UITableViewCell {
     }
     
     let getCachedImage = GetCachedImage(url: group.imageUrl)
-    let setGroupsProfileImageToRow = SetAddGroupsProfileImageToRow(cell: cell, indexPath: indexPath, tableView: tableView)
+    let setGroupsProfileImageToRow = SetImageToRow(cell: cell, indexPath: indexPath, tableView: tableView)
     setGroupsProfileImageToRow.addDependency(getCachedImage)
     queue.addOperation(getCachedImage)
     OperationQueue.main.addOperation(setGroupsProfileImageToRow)
