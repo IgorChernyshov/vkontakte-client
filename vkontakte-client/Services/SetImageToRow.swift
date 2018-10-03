@@ -8,13 +8,13 @@
 
 import UIKit
 
-class SetFriendsProfileImageToRow: Operation {
+class SetImageToRow<T>: Operation {
   
   private let indexPath: IndexPath
   private weak var tableView: UITableView?
-  private var cell: MyFriendsCell?
+  private var cell: T?
   
-  init(cell: MyFriendsCell, indexPath: IndexPath, tableView: UITableView) {
+  init(cell: T, indexPath: IndexPath, tableView: UITableView) {
     self.indexPath = indexPath
     self.tableView = tableView
     self.cell = cell
@@ -27,9 +27,17 @@ class SetFriendsProfileImageToRow: Operation {
       let image = getCachedImage.outputImage else {
         return
     }
+    switch T.self {
+    case is MyFriendsCell.Type:
+      guard let cell = cell as? MyFriendsCell else { return }
+      setFriendsProfile(image: image, cell: cell, tableView: tableView)
+    default:
+      return
+    }
+  }
+  
+  private func setFriendsProfile(image: UIImage, cell: MyFriendsCell, tableView: UITableView) {
     if let newIndexPath = tableView.indexPath(for: cell), newIndexPath == indexPath {
-      cell.profilePhotoImage.image = image
-    } else if tableView.indexPath(for: cell) == nil {
       cell.profilePhotoImage.image = image
     }
   }
