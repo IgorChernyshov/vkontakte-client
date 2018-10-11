@@ -51,7 +51,7 @@ extension AddGroupController: UISearchBarDelegate {
     if searchText != "" {
       APIService.instance.searchGroupsByName(searchName: searchText) { [weak self] groupsList in
         self?.groupsList = groupsList
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
           self?.tableView.reloadData()
         }
       }
