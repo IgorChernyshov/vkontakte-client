@@ -149,80 +149,80 @@
 		9C7FE87820CF8CDD00E81DC8 /* vkontakte-client */ = {
 			isa = PBXGroup;
 			children = (
-				9C86E58120DE26B8000840A9 /* Services */,
-				9CC252D420DFD6E800304DD8 /* Model */,
-				9C86E56820D93095000840A9 /* View */,
-				9C7FE88B20CF8FD100E81DC8 /* Controller */,
-				9CB4929320EE10700018EBE9 /* Storyboards */,
-				9C7FE87920CF8CDD00E81DC8 /* AppDelegate.swift */,
-				9C7FE88020CF8CE000E81DC8 /* Assets.xcassets */,
-				9C7FE88220CF8CE000E81DC8 /* LaunchScreen.storyboard */,
-				9C7FE88520CF8CE000E81DC8 /* Info.plist */,
+				9CFD4A27216FDFF900B61ADB /* Application */,
+				9CFD4A44216FE37000B61ADB /* Configuration */,
+				9CB4929320EE10700018EBE9 /* Resources */,
 			);
 			path = "vkontakte-client";
 			sourceTree = "<group>";
 		};
-		9C7FE88B20CF8FD100E81DC8 /* Controller */ = {
+		9CB4929320EE10700018EBE9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9C7FE87B20CF8CDD00E81DC8 /* LoginFormViewController.swift */,
-				9C86E56920D930CE000840A9 /* MyFriendsController.swift */,
-				9C86E57920D9347F000840A9 /* MyFriendsPhotosController.swift */,
-				9C86E56B20D9311A000840A9 /* MyGroupsController.swift */,
-				9C86E56D20D9335F000840A9 /* AddGroupController.swift */,
-				9C5BDBFB20F7AD1D00BCA3C5 /* NewsFeedViewController.swift */,
-				9CCB1F552115662A00A98533 /* ConversationsViewController.swift */,
-				9C1A4BA221294BEE0086470D /* MessagesViewController.swift */,
+				9CFD4A46216FE39000B61ADB /* Assets */,
 			);
-			path = Controller;
+			path = Resources;
 			sourceTree = "<group>";
 		};
-		9C86E56820D93095000840A9 /* View */ = {
+		9CFD4A27216FDFF900B61ADB /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				9C86E57120D933BD000840A9 /* MyFriendsCell.swift */,
-				9C86E57320D933CC000840A9 /* MyGroupsCell.swift */,
-				9C86E57520D933D6000840A9 /* AddGroupCell.swift */,
-				9C86E57720D933EB000840A9 /* MyFriendsPhotosCell.swift */,
-				9C5BDBFD20F8BB2400BCA3C5 /* NewsFeedTextCell.swift */,
-				9C9786BC20FEC1DD003B5083 /* NewsFeedTextAndPhotoCell.swift */,
-				9CCB1F572115669300A98533 /* ConversationCell.swift */,
-				9C67A93020E24D4A001F705C /* RoundedImage.swift */,
-				9C1A4B9E2128B4780086470D /* MessageLabel.swift */,
-				9C1A4BAA21295BB70086470D /* OutgoingMessageCell.swift */,
-				9C1A4BA821295BA70086470D /* IncomingMessageCell.swift */,
+				9CFD4A28216FE00A00B61ADB /* BusinessLogic */,
+				9CFD4A2E216FE10D00B61ADB /* UI */,
 			);
-			path = View;
+			path = Application;
 			sourceTree = "<group>";
 		};
-		9C86E58120DE26B8000840A9 /* Services */ = {
+		9CFD4A28216FE00A00B61ADB /* BusinessLogic */ = {
+			isa = PBXGroup;
+			children = (
+				9CFD4A2B216FE07B00B61ADB /* ImageCaching */,
+				9CFD4A2A216FE03200B61ADB /* Realm */,
+				9CFD4A29216FE01A00B61ADB /* APICalls */,
+				9CFD4A2C216FE0BC00B61ADB /* AppDelegate */,
+				9CFD4A2D216FE0E600B61ADB /* Entity */,
+			);
+			path = BusinessLogic;
+			sourceTree = "<group>";
+		};
+		9CFD4A29216FE01A00B61ADB /* APICalls */ = {
 			isa = PBXGroup;
 			children = (
 				9C86E58220DE26D2000840A9 /* APIService.swift */,
-				9CDBB58D20EEA2A400F02109 /* DataService.swift */,
 				9C9786B820FCE077003B5083 /* NewsFeedService.swift */,
 				9CCB1F5B21157F1C00A98533 /* ConversationsService.swift */,
 				9C1A4BA6212958D60086470D /* MessagesService.swift */,
+			);
+			path = APICalls;
+			sourceTree = "<group>";
+		};
+		9CFD4A2A216FE03200B61ADB /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				9CDBB58D20EEA2A400F02109 /* DataService.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		9CFD4A2B216FE07B00B61ADB /* ImageCaching */ = {
+			isa = PBXGroup;
+			children = (
 				9CA2505B21086A450014CA6C /* SetImageToRow.swift */,
 				9CFA503621109B1A0080C9E0 /* SetImageToCollectionCell.swift */,
 				9CA2505D21086A750014CA6C /* GetCachedImage.swift */,
 			);
-			path = Services;
+			path = ImageCaching;
 			sourceTree = "<group>";
 		};
-		9CB4929320EE10700018EBE9 /* Storyboards */ = {
+		9CFD4A2C216FE0BC00B61ADB /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				9C0E760420D8C4F800BC50EE /* TabBarStoryboard.storyboard */,
-				9C0E760620D8C58600BC50EE /* GroupsStoryboard.storyboard */,
-				9C0E760820D8C5B600BC50EE /* FriendsStoryboard.storyboard */,
-				9C5BDBF920F7ACD300BCA3C5 /* NewsFeedStoryboard.storyboard */,
-				9C38CF7E21139E9400969F5D /* MessagesStoryBoard.storyboard */,
+				9C7FE87920CF8CDD00E81DC8 /* AppDelegate.swift */,
 			);
-			path = Storyboards;
+			path = AppDelegate;
 			sourceTree = "<group>";
 		};
-		9CC252D420DFD6E800304DD8 /* Model */ = {
+		9CFD4A2D216FE0E600B61ADB /* Entity */ = {
 			isa = PBXGroup;
 			children = (
 				9CC252D520DFD70A00304DD8 /* Group.swift */,
@@ -232,7 +232,223 @@
 				9CCB1F5921156AE100A98533 /* Conversation.swift */,
 				9C1A4BA421294C440086470D /* Message.swift */,
 			);
-			path = Model;
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		9CFD4A2E216FE10D00B61ADB /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				9CFD4A2F216FE12500B61ADB /* Elements */,
+				9CFD4A35216FE1BB00B61ADB /* Modules */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		9CFD4A2F216FE12500B61ADB /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				9CFD4A30216FE13300B61ADB /* Basic */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
+		9CFD4A30216FE13300B61ADB /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				9CFD4A33216FE16A00B61ADB /* UILabel */,
+				9CFD4A32216FE15500B61ADB /* UIImageView */,
+				9CFD4A31216FE14000B61ADB /* UITablewViewCell */,
+				9CFD4A34216FE18E00B61ADB /* UICollectionViewCell */,
+			);
+			path = Basic;
+			sourceTree = "<group>";
+		};
+		9CFD4A31216FE14000B61ADB /* UITablewViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				9C86E57120D933BD000840A9 /* MyFriendsCell.swift */,
+				9C86E57320D933CC000840A9 /* MyGroupsCell.swift */,
+				9C86E57520D933D6000840A9 /* AddGroupCell.swift */,
+				9C5BDBFD20F8BB2400BCA3C5 /* NewsFeedTextCell.swift */,
+				9C9786BC20FEC1DD003B5083 /* NewsFeedTextAndPhotoCell.swift */,
+				9CCB1F572115669300A98533 /* ConversationCell.swift */,
+				9C1A4BAA21295BB70086470D /* OutgoingMessageCell.swift */,
+				9C1A4BA821295BA70086470D /* IncomingMessageCell.swift */,
+			);
+			path = UITablewViewCell;
+			sourceTree = "<group>";
+		};
+		9CFD4A32216FE15500B61ADB /* UIImageView */ = {
+			isa = PBXGroup;
+			children = (
+				9C67A93020E24D4A001F705C /* RoundedImage.swift */,
+			);
+			path = UIImageView;
+			sourceTree = "<group>";
+		};
+		9CFD4A33216FE16A00B61ADB /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+				9C1A4B9E2128B4780086470D /* MessageLabel.swift */,
+			);
+			path = UILabel;
+			sourceTree = "<group>";
+		};
+		9CFD4A34216FE18E00B61ADB /* UICollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				9C86E57720D933EB000840A9 /* MyFriendsPhotosCell.swift */,
+			);
+			path = UICollectionViewCell;
+			sourceTree = "<group>";
+		};
+		9CFD4A35216FE1BB00B61ADB /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				9CFD4A36216FE1E200B61ADB /* Main */,
+				9CFD4A37216FE20B00B61ADB /* Groups */,
+				9CFD4A38216FE22A00B61ADB /* Friends */,
+				9CFD4A39216FE25D00B61ADB /* NewsFeed */,
+				9CFD4A3A216FE27C00B61ADB /* Conversations */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		9CFD4A36216FE1E200B61ADB /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9C0E760420D8C4F800BC50EE /* TabBarStoryboard.storyboard */,
+				9CFD4A3B216FE2A800B61ADB /* Login */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		9CFD4A37216FE20B00B61ADB /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				9C0E760620D8C58600BC50EE /* GroupsStoryboard.storyboard */,
+				9CFD4A3D216FE2DF00B61ADB /* MyGroups */,
+			);
+			path = Groups;
+			sourceTree = "<group>";
+		};
+		9CFD4A38216FE22A00B61ADB /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				9C0E760820D8C5B600BC50EE /* FriendsStoryboard.storyboard */,
+				9CFD4A3F216FE30400B61ADB /* MyFriends */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		9CFD4A39216FE25D00B61ADB /* NewsFeed */ = {
+			isa = PBXGroup;
+			children = (
+				9C5BDBF920F7ACD300BCA3C5 /* NewsFeedStoryboard.storyboard */,
+				9CFD4A41216FE32400B61ADB /* NewsFeed */,
+			);
+			path = NewsFeed;
+			sourceTree = "<group>";
+		};
+		9CFD4A3A216FE27C00B61ADB /* Conversations */ = {
+			isa = PBXGroup;
+			children = (
+				9C38CF7E21139E9400969F5D /* MessagesStoryBoard.storyboard */,
+				9CFD4A42216FE33000B61ADB /* Conversations */,
+			);
+			path = Conversations;
+			sourceTree = "<group>";
+		};
+		9CFD4A3B216FE2A800B61ADB /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				9C7FE87B20CF8CDD00E81DC8 /* LoginFormViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		9CFD4A3D216FE2DF00B61ADB /* MyGroups */ = {
+			isa = PBXGroup;
+			children = (
+				9C86E56B20D9311A000840A9 /* MyGroupsController.swift */,
+				9CFD4A3E216FE2F700B61ADB /* AddGroups */,
+			);
+			path = MyGroups;
+			sourceTree = "<group>";
+		};
+		9CFD4A3E216FE2F700B61ADB /* AddGroups */ = {
+			isa = PBXGroup;
+			children = (
+				9C86E56D20D9335F000840A9 /* AddGroupController.swift */,
+			);
+			path = AddGroups;
+			sourceTree = "<group>";
+		};
+		9CFD4A3F216FE30400B61ADB /* MyFriends */ = {
+			isa = PBXGroup;
+			children = (
+				9C86E56920D930CE000840A9 /* MyFriendsController.swift */,
+				9CFD4A40216FE31100B61ADB /* FriendsPhotos */,
+			);
+			path = MyFriends;
+			sourceTree = "<group>";
+		};
+		9CFD4A40216FE31100B61ADB /* FriendsPhotos */ = {
+			isa = PBXGroup;
+			children = (
+				9C86E57920D9347F000840A9 /* MyFriendsPhotosController.swift */,
+			);
+			path = FriendsPhotos;
+			sourceTree = "<group>";
+		};
+		9CFD4A41216FE32400B61ADB /* NewsFeed */ = {
+			isa = PBXGroup;
+			children = (
+				9C5BDBFB20F7AD1D00BCA3C5 /* NewsFeedViewController.swift */,
+			);
+			path = NewsFeed;
+			sourceTree = "<group>";
+		};
+		9CFD4A42216FE33000B61ADB /* Conversations */ = {
+			isa = PBXGroup;
+			children = (
+				9CCB1F552115662A00A98533 /* ConversationsViewController.swift */,
+				9CFD4A43216FE33B00B61ADB /* Messages */,
+			);
+			path = Conversations;
+			sourceTree = "<group>";
+		};
+		9CFD4A43216FE33B00B61ADB /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				9C1A4BA221294BEE0086470D /* MessagesViewController.swift */,
+			);
+			path = Messages;
+			sourceTree = "<group>";
+		};
+		9CFD4A44216FE37000B61ADB /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				9CFD4A45216FE37D00B61ADB /* Release */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		9CFD4A45216FE37D00B61ADB /* Release */ = {
+			isa = PBXGroup;
+			children = (
+				9C7FE88520CF8CE000E81DC8 /* Info.plist */,
+			);
+			path = Release;
+			sourceTree = "<group>";
+		};
+		9CFD4A46216FE39000B61ADB /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				9C7FE88020CF8CE000E81DC8 /* Assets.xcassets */,
+				9C7FE88220CF8CE000E81DC8 /* LaunchScreen.storyboard */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		A74E85E0EDA44CABC0BF5D53 /* Frameworks */ = {
@@ -539,7 +755,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "$(SRCROOT)/vkontakte-client/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/vkontakte-client/Configuration/Release/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -560,7 +776,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "$(SRCROOT)/vkontakte-client/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/vkontakte-client/Configuration/Release/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
