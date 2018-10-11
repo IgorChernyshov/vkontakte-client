@@ -49,8 +49,7 @@
 		9CCB1F5A21156AE100A98533 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCB1F5921156AE100A98533 /* Conversation.swift */; };
 		9CCB1F5C21157F1C00A98533 /* ConversationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCB1F5B21157F1C00A98533 /* ConversationsService.swift */; };
 		9CDBB58E20EEA2A400F02109 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDBB58D20EEA2A400F02109 /* DataService.swift */; };
-		9CFA503721109B1A0080C9E0 /* SetFriendsPhotoToCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA503621109B1A0080C9E0 /* SetFriendsPhotoToCollectionViewCell.swift */; };
-		9CFA503F2110B0110080C9E0 /* SetNewsFeedTextAndPhotoCellOwnerProfileImageToRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA503E2110B0110080C9E0 /* SetNewsFeedTextAndPhotoCellOwnerProfileImageToRow.swift */; };
+		9CFA503721109B1A0080C9E0 /* SetImageToCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA503621109B1A0080C9E0 /* SetImageToCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,8 +100,7 @@
 		9CCB1F5921156AE100A98533 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		9CCB1F5B21157F1C00A98533 /* ConversationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsService.swift; sourceTree = "<group>"; };
 		9CDBB58D20EEA2A400F02109 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
-		9CFA503621109B1A0080C9E0 /* SetFriendsPhotoToCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetFriendsPhotoToCollectionViewCell.swift; sourceTree = "<group>"; };
-		9CFA503E2110B0110080C9E0 /* SetNewsFeedTextAndPhotoCellOwnerProfileImageToRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNewsFeedTextAndPhotoCellOwnerProfileImageToRow.swift; sourceTree = "<group>"; };
+		9CFA503621109B1A0080C9E0 /* SetImageToCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetImageToCollectionCell.swift; sourceTree = "<group>"; };
 		E7A788C266134932A4E0F4F0 /* Pods_vkontakte_client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vkontakte_client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -206,8 +204,7 @@
 				9CCB1F5B21157F1C00A98533 /* ConversationsService.swift */,
 				9C1A4BA6212958D60086470D /* MessagesService.swift */,
 				9CA2505B21086A450014CA6C /* SetImageToRow.swift */,
-				9CFA503E2110B0110080C9E0 /* SetNewsFeedTextAndPhotoCellOwnerProfileImageToRow.swift */,
-				9CFA503621109B1A0080C9E0 /* SetFriendsPhotoToCollectionViewCell.swift */,
+				9CFA503621109B1A0080C9E0 /* SetImageToCollectionCell.swift */,
 				9CA2505D21086A750014CA6C /* GetCachedImage.swift */,
 			);
 			path = Services;
@@ -398,12 +395,11 @@
 				9C86E56A20D930CE000840A9 /* MyFriendsController.swift in Sources */,
 				9C1A4BA521294C440086470D /* Message.swift in Sources */,
 				9C9786BB20FCE3D4003B5083 /* News.swift in Sources */,
-				9CFA503F2110B0110080C9E0 /* SetNewsFeedTextAndPhotoCellOwnerProfileImageToRow.swift in Sources */,
 				9C1A4BA321294BEE0086470D /* MessagesViewController.swift in Sources */,
 				9C9786B920FCE077003B5083 /* NewsFeedService.swift in Sources */,
 				9C7FE87A20CF8CDD00E81DC8 /* AppDelegate.swift in Sources */,
 				9CCB1F562115662A00A98533 /* ConversationsViewController.swift in Sources */,
-				9CFA503721109B1A0080C9E0 /* SetFriendsPhotoToCollectionViewCell.swift in Sources */,
+				9CFA503721109B1A0080C9E0 /* SetImageToCollectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

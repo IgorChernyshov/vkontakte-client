@@ -20,7 +20,7 @@ class MyFriendsPhotosCell: UICollectionViewCell {
   
   func configure(_ photo: Photo, cell: MyFriendsPhotosCell, indexPath: IndexPath, collectionView: UICollectionView) {
     let getCachedImage = GetCachedImage(url: photo.imageUrl)
-    let setFriendsPhotoToCollectionViewCell = SetFriendsPhotoToCollectionViewCell(cell: cell, indexPath: indexPath, collectionView: collectionView)
+    let setFriendsPhotoToCollectionViewCell = SetImageToCollectionCell(cell: cell, indexPath: indexPath, collectionView: collectionView)
     setFriendsPhotoToCollectionViewCell.addDependency(getCachedImage)
     queue.addOperation(getCachedImage)
     OperationQueue.main.addOperation(setFriendsPhotoToCollectionViewCell)

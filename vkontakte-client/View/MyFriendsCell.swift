@@ -69,7 +69,7 @@ class MyFriendsCell: UITableViewCell {
   func configure(_ user: User, cell: MyFriendsCell, indexPath: IndexPath, tableView: UITableView) {
     cell.setUserNameLabel(text: "\(user.firstName) \(user.lastName)")
     let getCachedImage = GetCachedImage(url: user.imageUrl)
-    let setFriendsProfileImageToRow = SetImageToRow<MyFriendsCell>(cell: cell, indexPath: indexPath, tableView: tableView)
+    let setFriendsProfileImageToRow = SetImageToRow<MyFriendsCell>(cell: cell, contentType: "MyFriendsCell", indexPath: indexPath, tableView: tableView)
     setFriendsProfileImageToRow.addDependency(getCachedImage)
     queue.addOperation(getCachedImage)
     OperationQueue.main.addOperation(setFriendsProfileImageToRow)

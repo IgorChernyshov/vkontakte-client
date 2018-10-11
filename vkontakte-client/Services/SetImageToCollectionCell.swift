@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SetFriendsPhotoToCollectionViewCell: Operation {
+class SetImageToCollectionCell: Operation {
   
   private let indexPath: IndexPath
   private weak var collectionView: UICollectionView?

@@ -28,7 +28,7 @@ class NewsFeedTextCell: UITableViewCell {
   
   func configure(_ news: News, cell: NewsFeedTextCell, indexPath: IndexPath, tableView: UITableView) {
     let getCachedImage = GetCachedImage(url: news.ownerPhoto)
-    let setNewsFeedTextCellImagesToRow = SetImageToRow(cell: cell, indexPath: indexPath, tableView: tableView)
+    let setNewsFeedTextCellImagesToRow = SetImageToRow(cell: cell, contentType: "NewsFeedTextCell", indexPath: indexPath, tableView: tableView)
     setNewsFeedTextCellImagesToRow.addDependency(getCachedImage)
     queue.addOperation(getCachedImage)
     OperationQueue.main.addOperation(setNewsFeedTextCellImagesToRow)

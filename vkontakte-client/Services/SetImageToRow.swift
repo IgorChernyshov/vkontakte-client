@@ -13,11 +13,13 @@ class SetImageToRow<T>: Operation {
   private let indexPath: IndexPath
   private weak var tableView: UITableView?
   private var cell: T?
+  private let contentType: String?
   
-  init(cell: T, indexPath: IndexPath, tableView: UITableView) {
+  init(cell: T, contentType: String, indexPath: IndexPath, tableView: UITableView) {
     self.indexPath = indexPath
     self.tableView = tableView
     self.cell = cell
+    self.contentType = contentType
   }
   
   override func main() {
@@ -28,25 +30,28 @@ class SetImageToRow<T>: Operation {
         return
     }
     // Check what type of cell requests the image
-    switch T.self {
-    case is MyFriendsCell.Type:
+    switch self.contentType {
+    case "MyFriendsCell":
       guard let cell = cell as? MyFriendsCell else { return }
       setFriendsProfileImage(image: image, cell: cell, tableView: tableView)
-    case is MyGroupsCell.Type:
+    case "MyGroupsCell":
       guard let cell = cell as? MyGroupsCell else { return }
       setGroupsProfileImage(image: image, cell: cell, tableView: tableView)
-    case is AddGroupCell.Type:
+    case "AddGroupCell":
       guard let cell = cell as? AddGroupCell else { return }
       setAddGroupsProfileImage(image: image, cell: cell, tableView: tableView)
-    case is NewsFeedTextCell.Type:
+    case "NewsFeedTextCell":
       guard let cell = cell as? NewsFeedTextCell else { return }
       setNewsFeedTextCellImage(image: image, cell: cell, tableView: tableView)
-    case is ConversationCell.Type:
+    case "ConversationCell":
       guard let cell = cell as? ConversationCell else { return }
       setConversationOwnerPhotoImage(image: image, cell: cell, tableView: tableView)
-    case is NewsFeedTextAndPhotoCell.Type:
+    case "NewsFeedTextAndPhotoCellOwner":
       guard let cell = cell as? NewsFeedTextAndPhotoCell else { return }
-      setNewsFeedTextAndImageCellImage(image: image, cell: cell, tableView: tableView)
+      setNewsFeedTextAndImageOwnerImage(image: image, cell: cell, tableView: tableView)
+    case "NewsFeedTextAndPhotoAttachment":
+      guard let cell = cell as? NewsFeedTextAndPhotoCell else { return }
+      setNewsFeedTextAndImageAttachmentImage(image: image, cell: cell, tableView: tableView)
     default:
       return
     }
@@ -82,10 +87,15 @@ class SetImageToRow<T>: Operation {
     }
   }
   
-  private func setNewsFeedTextAndImageCellImage(image: UIImage, cell: NewsFeedTextAndPhotoCell, tableView: UITableView) {
+  private func setNewsFeedTextAndImageOwnerImage(image: UIImage, cell: NewsFeedTextAndPhotoCell, tableView: UITableView) {
     if let newIndexPath = tableView.indexPath(for: cell), newIndexPath == indexPath {
       cell.ownerPhoto.image = image
     }
   }
   
+  private func setNewsFeedTextAndImageAttachmentImage(image: UIImage, cell: NewsFeedTextAndPhotoCell, tableView: UITableView) {
+    if let newIndexPath = tableView.indexPath(for: cell), newIndexPath == indexPath {
+      cell.attachedPhotoImage.image = image
+    }
+  }
 }

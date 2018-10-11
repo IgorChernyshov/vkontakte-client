@@ -24,7 +24,7 @@ class ConversationCell: UITableViewCell {
   
   func configure(_ conversation: Conversation, cell: ConversationCell, indexPath: IndexPath, tableView: UITableView) {
     let getCachedImage = GetCachedImage(url: conversation.ownerPhoto)
-    let setConversationProfileImageToRow = SetImageToRow(cell: cell, indexPath: indexPath, tableView: tableView)
+    let setConversationProfileImageToRow = SetImageToRow(cell: cell, contentType: "ConversationCell", indexPath: indexPath, tableView: tableView)
     setConversationProfileImageToRow.addDependency(getCachedImage)
     queue.addOperation(getCachedImage)
     OperationQueue.main.addOperation(setConversationProfileImageToRow)
