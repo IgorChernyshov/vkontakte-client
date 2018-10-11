@@ -30,23 +30,37 @@ class NewsFeedTextAndPhotoCell: UITableViewCell {
   }()
   
   func configure(_ news: News, cell: NewsFeedTextAndPhotoCell, indexPath: IndexPath, tableView: UITableView) {
+    
     // Get owner's photo
     let getCachedProfileImage = GetCachedImage(url: news.ownerPhoto)
-    let setNewsFeedTextAndPhotoCellOwnerProfile = SetNewsFeedTextAndPhotoCellOwnerProfileImageToRow(cell: cell, indexPath: indexPath, tableView: tableView)
+    let setNewsFeedTextAndPhotoCellOwnerProfile = SetImageToRow(
+      cell: cell,
+      contentType: "NewsFeedTextAndPhotoCellOwner",
+      indexPath: indexPath,
+      tableView: tableView
+    )
     setNewsFeedTextAndPhotoCellOwnerProfile.addDependency(getCachedProfileImage)
     queue.addOperation(getCachedProfileImage)
     OperationQueue.main.addOperation(setNewsFeedTextAndPhotoCellOwnerProfile)
+    
     // Get attached photo
     let getCachedAttachedImage = GetCachedImage(url: news.imageURL)
-    let setNewsFeedTextAndPhotoCellAttachedPhoto = SetNewsFeedTextAndPhotoCellAttachedPhotoToRow(cell: cell, indexPath: indexPath, tableView: tableView)
+    let setNewsFeedTextAndPhotoCellAttachedPhoto = SetImageToRow(
+      cell: cell,
+      contentType: "NewsFeedTextAndPhotoAttachment",
+      indexPath: indexPath,
+      tableView: tableView
+    )
     setNewsFeedTextAndPhotoCellAttachedPhoto.addDependency(getCachedAttachedImage)
     queue.addOperation(getCachedAttachedImage)
     OperationQueue.main.addOperation(setNewsFeedTextAndPhotoCellAttachedPhoto)
+    
     // Fit attached photo into cell based on a screen size
     let screenSize = UIScreen.main.bounds
     attachedImageWidthConstraint.constant = screenSize.width - 30
     let aspectRatio = attachedImageWidthConstraint.constant / CGFloat(news.imageWidth)
     attachedImageHeightConstraint.constant = CGFloat(news.imageHeight) * aspectRatio
+    
     // Set the rest of elements in a cell
     ownerName.text = news.ownerName
     newsTextLabel.text = news.text
