@@ -7,18 +7,19 @@
 //
 
 import UIKit
-import RealmSwift
 
 class MyFriendsController: UITableViewController {
   
-  private var users: Results<User>!
-  private var token: NotificationToken?
+  private let myFriendsService = MyFriendsAdapter()
+  private var users: [User] = []
   
   override func viewDidLoad() {
     super.viewDidLoad()
     addRefreshControl()
-    APIService.instance.requestUsersFriendsList()
-    pairTableAndRealm()
+    myFriendsService.getFriends() { [weak self] users in
+      self?.users = users
+      self?.tableView.reloadData()
+    }
   }
   
   private func addRefreshControl() {
@@ -31,26 +32,6 @@ class MyFriendsController: UITableViewController {
   @objc private func refreshFriendsList(_ sender: Any) {
     APIService.instance.requestUsersFriendsList()
     self.refreshControl?.endRefreshing()
-  }
-  
-  private func pairTableAndRealm() {
-    guard let realm = try? Realm() else {
-      return
-    }
-    users = realm.objects(User.self)
-    token = users?.observe({ [weak self] (changes: RealmCollectionChange) in
-      guard let tableView = self?.tableView else {
-        return
-      }
-      switch changes {
-      case .initial:
-        tableView.reloadData()
-      case .update:
-        tableView.reloadData()
-      case .error(let error):
-        fatalError("\(error)")
-      }
-    })
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

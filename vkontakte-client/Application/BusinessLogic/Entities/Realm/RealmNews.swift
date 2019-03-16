@@ -1,5 +1,5 @@
 //
-//  News.swift
+//  RealmNews.swift
 //  igor-chernyshov
 //
 //  Created by Igor Chernyshov on 16.07.2018.
@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 import RealmSwift
 
-class News: Object {
+class RealmNews: Object {
   
   @objc dynamic var sourceId = 0
   @objc dynamic var postId = 0

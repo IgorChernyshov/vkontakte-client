@@ -29,7 +29,7 @@ class NewsFeedTextAndPhotoCell: UITableViewCell {
     return queue
   }()
   
-  func configure(_ news: News, cell: NewsFeedTextAndPhotoCell, indexPath: IndexPath, tableView: UITableView) {
+  func configure(_ news: RealmNews, cell: NewsFeedTextAndPhotoCell, indexPath: IndexPath, tableView: UITableView) {
     
     // Get owner's photo
     let getCachedProfileImage = GetCachedImage(url: news.ownerPhoto)

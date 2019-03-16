@@ -12,7 +12,7 @@ class AddGroupController: UITableViewController {
   
   @IBOutlet weak var searchBar: UISearchBar!
   
-  private var groupsList = [Group]()
+  private var groupsList = [RealmGroup]()
   
   override func viewDidLoad() {
     super.viewDidLoad()

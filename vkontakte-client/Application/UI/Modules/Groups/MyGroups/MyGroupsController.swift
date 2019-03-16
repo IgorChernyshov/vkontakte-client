@@ -11,7 +11,7 @@ import RealmSwift
 
 class MyGroupsController: UITableViewController {
   
-  private var groups: Results<Group>!
+  private var groups: Results<RealmGroup>!
   private var token: NotificationToken?
   
   override func viewDidLoad() {
@@ -37,7 +37,7 @@ class MyGroupsController: UITableViewController {
     guard let realm = try? Realm() else {
       return
     }
-    groups = realm.objects(Group.self)
+    groups = realm.objects(RealmGroup.self)
     token = groups?.observe({ [weak self] (changes: RealmCollectionChange) in
       guard let tableView = self?.tableView else {
         return

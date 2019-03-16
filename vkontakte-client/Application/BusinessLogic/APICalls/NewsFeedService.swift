@@ -16,9 +16,9 @@ class NewsFeedService {
   
   private init() {}
   
-  private var news = [News]()
-  private var users = [User]()
-  private var groups = [Group]()
+  private var news = [RealmNews]()
+  private var users = [RealmUser]()
+  private var groups = [RealmGroup]()
   
   // Get news feed containing posts and photos, but with only 1 attachment and not more than 20 posts
   func requestUsersNewsFeed() {
@@ -38,9 +38,9 @@ class NewsFeedService {
           return
         }
         let json = try JSON(data: data)
-        self?.news = json["response"]["items"].compactMap { News(json: $0.1) }
-        self?.users = json["response"]["profiles"].compactMap { User(json: $0.1) }
-        self?.groups = json["response"]["groups"].compactMap { Group(json: $0.1) }
+        self?.news = json["response"]["items"].compactMap { RealmNews(json: $0.1) }
+        self?.users = json["response"]["profiles"].compactMap { RealmUser(json: $0.1) }
+        self?.groups = json["response"]["groups"].compactMap { RealmGroup(json: $0.1) }
         self?.news = (self?.news.filter { $0.text != "" || $0.imageURL != "" })!
         self?.identifyNewsSource()
         DataService.instance.saveUsersNewsList(strongSelf.news)

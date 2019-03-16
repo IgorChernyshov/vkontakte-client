@@ -26,7 +26,7 @@ class NewsFeedTextCell: UITableViewCell {
     return queue
   }()
   
-  func configure(_ news: News, cell: NewsFeedTextCell, indexPath: IndexPath, tableView: UITableView) {
+  func configure(_ news: RealmNews, cell: NewsFeedTextCell, indexPath: IndexPath, tableView: UITableView) {
     let getCachedImage = GetCachedImage(url: news.ownerPhoto)
     let setNewsFeedTextCellImagesToRow = SetImageToRow(cell: cell, contentType: "NewsFeedTextCell", indexPath: indexPath, tableView: tableView)
     setNewsFeedTextCellImagesToRow.addDependency(getCachedImage)

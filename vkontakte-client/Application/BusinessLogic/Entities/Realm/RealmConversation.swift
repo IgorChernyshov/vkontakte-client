@@ -1,5 +1,5 @@
 //
-//  Conversation.swift
+//  RealmConversation.swift
 //  igor-chernyshov
 //
 //  Created by Igor Chernyshov on 04.08.2018.
@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 import RealmSwift
 
-class Conversation: Object {
+class RealmConversation: Object {
   
   @objc dynamic var withUserId = 0
   @objc dynamic var chatType = ""

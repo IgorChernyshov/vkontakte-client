@@ -22,7 +22,7 @@ class ConversationCell: UITableViewCell {
     return queue
   }()
   
-  func configure(_ conversation: Conversation, cell: ConversationCell, indexPath: IndexPath, tableView: UITableView) {
+  func configure(_ conversation: RealmConversation, cell: ConversationCell, indexPath: IndexPath, tableView: UITableView) {
     let getCachedImage = GetCachedImage(url: conversation.ownerPhoto)
     let setConversationProfileImageToRow = SetImageToRow(cell: cell, contentType: "ConversationCell", indexPath: indexPath, tableView: tableView)
     setConversationProfileImageToRow.addDependency(getCachedImage)

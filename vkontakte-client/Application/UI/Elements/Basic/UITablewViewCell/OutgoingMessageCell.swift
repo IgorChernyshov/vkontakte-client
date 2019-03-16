@@ -12,7 +12,7 @@ class OutgoingMessageCell: UITableViewCell {
 
   @IBOutlet weak var messageLabel: MessageLabel!
   
-  func configure(_ message: Message) {
+  func configure(_ message: RealmMessage) {
     messageLabel.text = message.text
   }
   

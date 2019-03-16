@@ -24,7 +24,7 @@ class AddGroupCell: UITableViewCell {
     return queue
   }()
   
-  func configure(_ group: Group, cell: AddGroupCell, indexPath: IndexPath, tableView: UITableView) {
+  func configure(_ group: RealmGroup, cell: AddGroupCell, indexPath: IndexPath, tableView: UITableView) {
     groupNameLabel.text = group.name
     numberOfSubscribersLabel.text = "Участников: \(group.membersCount)"
     id = group.id

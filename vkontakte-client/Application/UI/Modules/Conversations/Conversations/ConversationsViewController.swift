@@ -11,7 +11,7 @@ import RealmSwift
 
 class ConversationsViewController: UITableViewController {
   
-  private var conversations: Results<Conversation>!
+  private var conversations: Results<RealmConversation>!
   private var token: NotificationToken?
   
   override func viewDidLoad() {
@@ -37,7 +37,7 @@ class ConversationsViewController: UITableViewController {
     guard let realm = try? Realm() else {
       return
     }
-    conversations = realm.objects(Conversation.self)
+    conversations = realm.objects(RealmConversation.self)
     token = conversations?.observe({ [weak self] (changes: RealmCollectionChange) in
       guard let tableView = self?.tableView else {
         return
