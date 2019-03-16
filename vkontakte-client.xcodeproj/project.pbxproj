@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5FBB328CE24DD2E64A6539B2 /* Pods_vkontakte_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A788C266134932A4E0F4F0 /* Pods_vkontakte_client.framework */; };
-		6D42171579FCC2ED1DD1981D /* Pods_igor_chernyshov.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 250AC81EFC8DEC758C22BD57 /* Pods_igor_chernyshov.framework */; };
 		9C0E760520D8C4F800BC50EE /* TabBarStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C0E760420D8C4F800BC50EE /* TabBarStoryboard.storyboard */; };
 		9C0E760720D8C58600BC50EE /* GroupsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C0E760620D8C58600BC50EE /* GroupsStoryboard.storyboard */; };
 		9C0E760920D8C5B600BC50EE /* FriendsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C0E760820D8C5B600BC50EE /* FriendsStoryboard.storyboard */; };
@@ -38,6 +37,7 @@
 		9C86E57820D933EB000840A9 /* MyFriendsPhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86E57720D933EB000840A9 /* MyFriendsPhotosCell.swift */; };
 		9C86E57A20D9347F000840A9 /* MyFriendsPhotosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86E57920D9347F000840A9 /* MyFriendsPhotosController.swift */; };
 		9C86E58320DE26D2000840A9 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C86E58220DE26D2000840A9 /* APIService.swift */; };
+		9C8D8C10223CDBDB007D0C28 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D8C0F223CDBDB007D0C28 /* CustomColors.swift */; };
 		9C9786B920FCE077003B5083 /* NewsFeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9786B820FCE077003B5083 /* NewsFeedService.swift */; };
 		9C9786BB20FCE3D4003B5083 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9786BA20FCE3D4003B5083 /* News.swift */; };
 		9C9786BD20FEC1DD003B5083 /* NewsFeedTextAndPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9786BC20FEC1DD003B5083 /* NewsFeedTextAndPhotoCell.swift */; };
@@ -53,9 +53,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		033FDC8B58CB90A92851A53A /* Pods-igor-chernyshov.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-igor-chernyshov.debug.xcconfig"; path = "Pods/Target Support Files/Pods-igor-chernyshov/Pods-igor-chernyshov.debug.xcconfig"; sourceTree = "<group>"; };
-		250AC81EFC8DEC758C22BD57 /* Pods_igor_chernyshov.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_igor_chernyshov.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2C95BBA7B5382981CACB35C4 /* Pods-igor-chernyshov.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-igor-chernyshov.release.xcconfig"; path = "Pods/Target Support Files/Pods-igor-chernyshov/Pods-igor-chernyshov.release.xcconfig"; sourceTree = "<group>"; };
 		4B06364CBA7E6B7E8AEA8C79 /* Pods-vkontakte-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vkontakte-client.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vkontakte-client/Pods-vkontakte-client.debug.xcconfig"; sourceTree = "<group>"; };
 		95C0635858363565F6DBA25E /* Pods-vkontakte-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vkontakte-client.release.xcconfig"; path = "Pods/Target Support Files/Pods-vkontakte-client/Pods-vkontakte-client.release.xcconfig"; sourceTree = "<group>"; };
 		9C0E760420D8C4F800BC50EE /* TabBarStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarStoryboard.storyboard; sourceTree = "<group>"; };
@@ -89,6 +86,7 @@
 		9C86E57720D933EB000840A9 /* MyFriendsPhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsPhotosCell.swift; sourceTree = "<group>"; };
 		9C86E57920D9347F000840A9 /* MyFriendsPhotosController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsPhotosController.swift; sourceTree = "<group>"; };
 		9C86E58220DE26D2000840A9 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		9C8D8C0F223CDBDB007D0C28 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		9C9786B820FCE077003B5083 /* NewsFeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedService.swift; sourceTree = "<group>"; };
 		9C9786BA20FCE3D4003B5083 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		9C9786BC20FEC1DD003B5083 /* NewsFeedTextAndPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTextAndPhotoCell.swift; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D42171579FCC2ED1DD1981D /* Pods_igor_chernyshov.framework in Frameworks */,
 				5FBB328CE24DD2E64A6539B2 /* Pods_vkontakte_client.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,8 +117,6 @@
 		2EFC232C33670689A17FCC7C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				033FDC8B58CB90A92851A53A /* Pods-igor-chernyshov.debug.xcconfig */,
-				2C95BBA7B5382981CACB35C4 /* Pods-igor-chernyshov.release.xcconfig */,
 				4B06364CBA7E6B7E8AEA8C79 /* Pods-vkontakte-client.debug.xcconfig */,
 				95C0635858363565F6DBA25E /* Pods-vkontakte-client.release.xcconfig */,
 			);
@@ -154,6 +149,14 @@
 				9CB4929320EE10700018EBE9 /* Resources */,
 			);
 			path = "vkontakte-client";
+			sourceTree = "<group>";
+		};
+		9C8D8C0E223CDBAE007D0C28 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				9C8D8C0F223CDBDB007D0C28 /* CustomColors.swift */,
+			);
+			path = UIColor;
 			sourceTree = "<group>";
 		};
 		9CB4929320EE10700018EBE9 /* Resources */ = {
@@ -255,10 +258,11 @@
 		9CFD4A30216FE13300B61ADB /* Basic */ = {
 			isa = PBXGroup;
 			children = (
-				9CFD4A33216FE16A00B61ADB /* UILabel */,
-				9CFD4A32216FE15500B61ADB /* UIImageView */,
-				9CFD4A31216FE14000B61ADB /* UITablewViewCell */,
 				9CFD4A34216FE18E00B61ADB /* UICollectionViewCell */,
+				9C8D8C0E223CDBAE007D0C28 /* UIColor */,
+				9CFD4A32216FE15500B61ADB /* UIImageView */,
+				9CFD4A33216FE16A00B61ADB /* UILabel */,
+				9CFD4A31216FE14000B61ADB /* UITablewViewCell */,
 			);
 			path = Basic;
 			sourceTree = "<group>";
@@ -454,7 +458,6 @@
 		A74E85E0EDA44CABC0BF5D53 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				250AC81EFC8DEC758C22BD57 /* Pods_igor_chernyshov.framework */,
 				E7A788C266134932A4E0F4F0 /* Pods_vkontakte_client.framework */,
 			);
 			name = Frameworks;
@@ -598,6 +601,7 @@
 				9CDBB58E20EEA2A400F02109 /* DataService.swift in Sources */,
 				9C86E56C20D9311A000840A9 /* MyGroupsController.swift in Sources */,
 				9CCB1F5A21156AE100A98533 /* Conversation.swift in Sources */,
+				9C8D8C10223CDBDB007D0C28 /* CustomColors.swift in Sources */,
 				9CCB1F582115669300A98533 /* ConversationCell.swift in Sources */,
 				9C5BDBFC20F7AD1D00BCA3C5 /* NewsFeedViewController.swift in Sources */,
 				9C86E57820D933EB000840A9 /* MyFriendsPhotosCell.swift in Sources */,

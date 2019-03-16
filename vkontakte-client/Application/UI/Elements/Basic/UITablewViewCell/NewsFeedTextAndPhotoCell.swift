@@ -67,7 +67,7 @@ class NewsFeedTextAndPhotoCell: UITableViewCell {
     likesButton.setTitle(" \(news.likesCount)", for: .normal)
     if news.userLikes == 1 {
       likesButton.setImage(#imageLiteral(resourceName: "likeIconSelected"), for: .normal)
-      likesButton.setTitleColor(#colorLiteral(red: 0.9215686275, green: 0.2823529412, blue: 0.3058823529, alpha: 1), for: .normal)
+      likesButton.setTitleColor(UIColor.likedIconColor, for: .normal)
     }
     commentsButton.setTitle(" \(news.commentsCount)", for: .normal)
     repostsButton.setTitle(" \(news.repostsCount)", for: .normal)
@@ -77,14 +77,14 @@ class NewsFeedTextAndPhotoCell: UITableViewCell {
   }
   
   @IBAction func likeButtonWasPressed(_ sender: Any) {
-    if likesButton.titleColor(for: .normal) == #colorLiteral(red: 0.9215686275, green: 0.2823529412, blue: 0.3058823529, alpha: 1) {
+    if likesButton.titleColor(for: .normal) == UIColor.likedIconColor {
       NewsFeedService.instance.changeNumberOfLikes(post_id, ownerId: owner_id, action: "delete")
       likesButton.setImage(#imageLiteral(resourceName: "likeIconNotSelected"), for: .normal)
-      likesButton.setTitleColor(#colorLiteral(red: 0.7161806226, green: 0.7311164737, blue: 0.7643541098, alpha: 1), for: .normal)
+      likesButton.setTitleColor(UIColor.notLikedIconColor, for: .normal)
     } else {
       NewsFeedService.instance.changeNumberOfLikes(post_id, ownerId: owner_id, action: "add")
       likesButton.setImage(#imageLiteral(resourceName: "likeIconSelected"), for: .normal)
-      likesButton.setTitleColor(#colorLiteral(red: 0.9215686275, green: 0.2823529412, blue: 0.3058823529, alpha: 1), for: .normal)
+      likesButton.setTitleColor(UIColor.likedIconColor, for: .normal)
     }
   }
   
@@ -95,7 +95,7 @@ class NewsFeedTextAndPhotoCell: UITableViewCell {
     ownerName.text = ""
     newsTextLabel.text = ""
     likesButton.setImage(#imageLiteral(resourceName: "likeIconNotSelected"), for: .normal)
-    likesButton.setTitleColor(#colorLiteral(red: 0.7161806226, green: 0.7311164737, blue: 0.7643541098, alpha: 1), for: .normal)
+    likesButton.setTitleColor(UIColor.notLikedIconColor, for: .normal)
     likesButton.setTitle("", for: .normal)
     commentsButton.setTitle("", for: .normal)
     repostsButton.setTitle("", for: .normal)

@@ -24,7 +24,7 @@ class MyFriendsController: UITableViewController {
   private func addRefreshControl() {
     refreshControl = UIRefreshControl()
     tableView.addSubview(refreshControl!)
-    refreshControl?.tintColor = #colorLiteral(red: 0.4235294118, green: 0.537254902, blue: 0.6862745098, alpha: 1)
+    refreshControl?.tintColor = UIColor.activityIndicatorColor
     refreshControl?.addTarget(self, action: #selector(refreshFriendsList(_:)), for: .valueChanged)
   }
   

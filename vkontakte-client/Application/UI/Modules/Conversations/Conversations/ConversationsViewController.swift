@@ -24,7 +24,7 @@ class ConversationsViewController: UITableViewController {
   private func addRefreshControl() {
     refreshControl = UIRefreshControl()
     tableView.addSubview(refreshControl!)
-    refreshControl?.tintColor = #colorLiteral(red: 0.4235294118, green: 0.537254902, blue: 0.6862745098, alpha: 1)
+    refreshControl?.tintColor = UIColor.activityIndicatorColor
     refreshControl?.addTarget(self, action: #selector(refreshConversationsList(_:)), for: .valueChanged)
   }
   
@@ -106,7 +106,7 @@ class ConversationsViewController: UITableViewController {
       let id = String(strongSelf.conversations[indexPath.row].withUserId)
       self?.showDeleteConfirmationForm(id: id)
     }
-    deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+    deleteAction.backgroundColor = UIColor.red
     action = [deleteAction]
     
     return action

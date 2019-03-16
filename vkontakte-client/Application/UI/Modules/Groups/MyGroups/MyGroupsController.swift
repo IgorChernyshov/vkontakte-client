@@ -24,7 +24,7 @@ class MyGroupsController: UITableViewController {
   private func addRefreshControl() {
     refreshControl = UIRefreshControl()
     tableView.addSubview(refreshControl!)
-    refreshControl?.tintColor = #colorLiteral(red: 0.4235294118, green: 0.537254902, blue: 0.6862745098, alpha: 1)
+    refreshControl?.tintColor = UIColor.activityIndicatorColor
     refreshControl?.addTarget(self, action: #selector(refreshGroupsList(_:)), for: .valueChanged)
   }
   
@@ -82,7 +82,7 @@ class MyGroupsController: UITableViewController {
       let group = strongSelf.groups[indexPath.row]
       self?.showUnsubscribeConfirmationForm(id: group.id, indexPath: indexPath)
     }
-    deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+    deleteAction.backgroundColor = UIColor.red
     action = [deleteAction]
     
     return action
