@@ -18,7 +18,7 @@ class APIService {
   
   // Constants
   let appid = "6612678"
-  let apiVersion = "5.80"
+  let apiVersion = "5.92"
   
   // Authentication token for API calls
   var authToken = ""
