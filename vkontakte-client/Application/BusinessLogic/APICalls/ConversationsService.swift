@@ -16,8 +16,8 @@ class ConversationsService {
   
   private init() {}
   
-  private var conversations = [Conversation]()
-  private var users = [User]()
+  private var conversations = [RealmConversation]()
+  private var users = [RealmUser]()
   
   // Get 50 last conversations
   func requestUsersConversations() {
@@ -36,8 +36,8 @@ class ConversationsService {
           return
         }
         let json = try JSON(data: data)
-        self?.conversations = json["response"]["items"].compactMap { Conversation(json: $0.1) }
-        self?.users = json["response"]["profiles"].compactMap { User(json: $0.1) }
+        self?.conversations = json["response"]["items"].compactMap { RealmConversation(json: $0.1) }
+        self?.users = json["response"]["profiles"].compactMap { RealmUser(json: $0.1) }
         // Remove conversations of type "chat"
         self?.conversations = strongSelf.conversations.filter { $0.chatType != "chat" }
         self?.conversations = strongSelf.conversations.filter { $0.chatType != "group" }

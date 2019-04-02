@@ -1,5 +1,5 @@
 //
-//  Photo.swift
+//  RealmPhoto.swift
 //  igor-chernyshov
 //
 //  Created by Igor Chernyshov on 26.06.2018.
@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 import RealmSwift
 
-class Photo: Object {
+class RealmPhoto: Object {
   
   @objc dynamic var ownerId = 0
   @objc dynamic var id = 0

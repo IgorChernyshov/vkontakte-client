@@ -18,7 +18,7 @@ class APIService {
   
   // Constants
   let appid = "6612678"
-  let apiVersion = "5.80"
+  let apiVersion = "5.92"
   
   // Authentication token for API calls
   var authToken = ""
@@ -37,7 +37,7 @@ class APIService {
       }
       do {
         let json = try JSON(data: data)
-        let user = json["response"]["items"].compactMap { User(json: $0.1) }
+        let user = json["response"]["items"].compactMap { RealmUser(json: $0.1) }
         DataService.instance.saveUsersFriendsList(user)
       }
       catch {
@@ -61,7 +61,7 @@ class APIService {
       }
       do {
         let json = try JSON(data: data)
-        let photos = json["response"]["items"].compactMap { Photo(json: $0.1) }
+        let photos = json["response"]["items"].compactMap { RealmPhoto(json: $0.1) }
         DataService.instance.saveFriendsPhotos(photos, forUser: userId)
       }
       catch {
@@ -84,7 +84,7 @@ class APIService {
       }
       do {
         let json = try JSON(data: data)
-        let groups = json["response"]["items"].compactMap { Group(json: $0.1) }
+        let groups = json["response"]["items"].compactMap { RealmGroup(json: $0.1) }
         DataService.instance.saveUsersGroups(groups)
       }
       catch {
@@ -94,7 +94,7 @@ class APIService {
   }
   
   // Get first 50 groups by keywords. Hide a group if user is already subscribed
-  func searchGroupsByName(searchName: String, completion: @escaping ([Group]) -> Void) {
+  func searchGroupsByName(searchName: String, completion: @escaping ([RealmGroup]) -> Void) {
     let url = "https://api.vk.com/method/groups.search?access_token=\(authToken)&v=\(apiVersion)"
     let parameters: Parameters = [
       "q": searchName,
@@ -108,7 +108,7 @@ class APIService {
       }
       do {
         let json = try JSON(data: data)
-        var group = json["response"]["items"].compactMap { Group(json: $0.1) }
+        var group = json["response"]["items"].compactMap { RealmGroup(json: $0.1) }
         for (index, checkedGroup) in group.enumerated() {
           if checkedGroup.isMember {
             group.remove(at: index)

@@ -7,33 +7,35 @@
 //
 
 import UIKit
-import RealmSwift
 
 class MyFriendsPhotosController: UICollectionViewController {
   
   var userId = ""
-  private var photos: List<Photo>!
-  private var token: NotificationToken?
+  private let myFriendsPhotosService = MyFriendsPhotosAdapter()
+  private var photos: [Photo] = []
   
   private let refreshControl = UIRefreshControl()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     addRefreshControl()
-    APIService.instance.requestUsersProfilePhotos(userId: userId)
-    pairCollectionViewAndRealm()
+    
+    myFriendsPhotosService.getPhotos(of: userId) { [weak self] photos in
+      self?.photos = photos
+      self?.collectionView?.reloadData()
+    }
     calculatePhotosSize()
   }
   
   private func addRefreshControl() {
     collectionView?.addSubview(refreshControl)
-    refreshControl.tintColor = #colorLiteral(red: 0.4235294118, green: 0.537254902, blue: 0.6862745098, alpha: 1)
+    refreshControl.tintColor = UIColor.activityIndicatorColor
     refreshControl.addTarget(self, action: #selector(refreshUsersPhotos(_:)), for: .valueChanged)
   }
   
   @objc private func refreshUsersPhotos(_ sender: Any) {
-    self.refreshControl.endRefreshing()
     APIService.instance.requestUsersProfilePhotos(userId: userId)
+    self.refreshControl.endRefreshing()
   }
   
   private func calculatePhotosSize() {
@@ -46,26 +48,6 @@ class MyFriendsPhotosController: UICollectionViewController {
     flow.itemSize = CGSize(width: floor(width/itemsInOneLine), height: width/itemsInOneLine)
     flow.minimumInteritemSpacing = 3
     flow.minimumLineSpacing = 3
-  }
-  
-  private func pairCollectionViewAndRealm() {
-    guard let realm = try? Realm(), let user = realm.object(ofType: User.self, forPrimaryKey: Int(userId)) else {
-      return
-    }
-    photos = user.photos
-    token = photos.observe { [weak self] (changes: RealmCollectionChange) in
-      guard let collectionView = self?.collectionView else {
-        return
-      }
-      switch changes {
-      case .initial:
-        collectionView.reloadData()
-      case .update:
-        collectionView.reloadData()
-      case .error(let error):
-        print(error.localizedDescription)
-      }
-    }
   }
   
   override func numberOfSections(in collectionView: UICollectionView) -> Int {

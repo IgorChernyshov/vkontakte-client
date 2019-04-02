@@ -11,7 +11,7 @@ import RealmSwift
 
 class NewsFeedViewController: UITableViewController {
   
-  private var news: Results<News>!
+  private var news: Results<RealmNews>!
   private var token: NotificationToken?
   
   override func viewDidLoad() {
@@ -25,7 +25,7 @@ class NewsFeedViewController: UITableViewController {
   private func addRefreshControl() {
     refreshControl = UIRefreshControl()
     tableView.addSubview(refreshControl!)
-    refreshControl?.tintColor = #colorLiteral(red: 0.4235294118, green: 0.537254902, blue: 0.6862745098, alpha: 1)
+    refreshControl?.tintColor = UIColor.activityIndicatorColor
     refreshControl?.addTarget(self, action: #selector(refreshNewsList(_:)), for: .valueChanged)
   }
   
@@ -38,7 +38,7 @@ class NewsFeedViewController: UITableViewController {
     guard let realm = try? Realm() else {
       return
     }
-    news = realm.objects(News.self)
+    news = realm.objects(RealmNews.self)
     token = news?.observe({ [weak self] (changes: RealmCollectionChange) in
       guard let tableView = self?.tableView else {
         return

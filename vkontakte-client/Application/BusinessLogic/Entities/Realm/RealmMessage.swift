@@ -1,5 +1,5 @@
 //
-//  Message.swift
+//  RealmMessage.swift
 //  igor-chernyshov
 //
 //  Created by Igor Chernyshov on 19.08.2018.
@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 import RealmSwift
 
-class Message: Object {
+class RealmMessage: Object {
   
   @objc dynamic var conversationMessageId = 0
   @objc dynamic var peerID = 0

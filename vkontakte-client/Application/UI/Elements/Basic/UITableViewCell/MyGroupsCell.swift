@@ -19,7 +19,7 @@ class MyGroupsCell: UITableViewCell {
     return queue
   }()
   
-  func configure(_ group: Group, cell: MyGroupsCell, indexPath: IndexPath, tableView: UITableView) {
+  func configure(_ group: RealmGroup, cell: MyGroupsCell, indexPath: IndexPath, tableView: UITableView) {
     groupNameLabel.text = group.name
     let getCachedImage = GetCachedImage(url: group.imageUrl)
     let setGroupsProfileImageToRow = SetImageToRow(cell: cell, contentType: "MyGroupsCell", indexPath: indexPath, tableView: tableView)

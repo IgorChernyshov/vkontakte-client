@@ -16,7 +16,7 @@ class MessagesService {
   
   private init() {}
   
-  private var messages = [Message]()
+  private var messages = [RealmMessage]()
   
   // Get 50 last messages
   func requestMessages(withUser: Int) {
@@ -31,7 +31,7 @@ class MessagesService {
       do {
         guard let strongSelf = self else { return }
         let json = try JSON(data: data)
-        self?.messages = json["response"]["items"].compactMap { Message(json: $0.1) }
+        self?.messages = json["response"]["items"].compactMap { RealmMessage(json: $0.1) }
         // Filter out empty messages
         // TODO: replace this with an attachments handler.
         self?.messages = (self?.messages.filter { $0.text != "" })!

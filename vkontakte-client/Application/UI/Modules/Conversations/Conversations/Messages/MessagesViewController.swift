@@ -15,7 +15,7 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
   @IBOutlet weak var messageToSendText: UITextField!
   
   var conversationWithUserID: Int = 0
-  private var messages: Results<Message>!
+  private var messages: Results<RealmMessage>!
   private var token: NotificationToken?
   
   override func viewDidLoad() {
@@ -31,7 +31,7 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
     guard let realm = try? Realm() else {
       return
     }
-    messages = realm.objects(Message.self)
+    messages = realm.objects(RealmMessage.self)
     token = messages?.observe({ [weak self] (changes: RealmCollectionChange) in
       guard let tableView = self?.tableView else {
         return

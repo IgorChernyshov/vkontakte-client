@@ -1,8 +1,8 @@
 //
-//  User.swift
+//  RealmGroup.swift
 //  igor-chernyshov
 //
-//  Created by Igor Chernyshov on 26.06.2018.
+//  Created by Igor Chernyshov on 24.06.2018.
 //  Copyright © 2018 Igor Chernyshov. All rights reserved.
 //
 
@@ -10,13 +10,14 @@ import Foundation
 import SwiftyJSON
 import RealmSwift
 
-class User: Object {
+class RealmGroup: Object {
   
   @objc dynamic var id = 0
-  @objc dynamic var firstName = ""
-  @objc dynamic var lastName = ""
+  @objc dynamic var name = ""
   @objc dynamic var imageUrl = ""
-  let photos = List<Photo>()
+  @objc dynamic var membersCount = 0
+  @objc dynamic var isMember = false
+  @objc dynamic var isClosed = false
   
   override static func primaryKey() -> String? {
     return "id"
@@ -26,9 +27,11 @@ class User: Object {
     self.init()
     DispatchQueue.global().async {
       self.id = json["id"].intValue
-      self.firstName = json["first_name"].stringValue
-      self.lastName = json["last_name"].stringValue
+      self.name = json["name"].stringValue
       self.imageUrl = json["photo_50"].stringValue
+      self.membersCount = json["members_count"].intValue
+      self.isMember = json["is_member"].boolValue
+      self.isClosed = json["is_closed"].boolValue
     }
   }
   

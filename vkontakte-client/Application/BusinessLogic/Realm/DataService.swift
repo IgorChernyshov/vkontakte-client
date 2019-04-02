@@ -15,12 +15,12 @@ class DataService {
   
   private init() {}
   
-  func saveUsersFriendsList(_ users: [User]) {
+  func saveUsersFriendsList(_ users: [RealmUser]) {
     do {
       let realm = try Realm()
       // Clean all cached friends and their photos
-      let oldUsersFriendsList = realm.objects(User.self)
-      let oldUsersPhotos = realm.objects(Photo.self)
+      let oldUsersFriendsList = realm.objects(RealmUser.self)
+      let oldUsersPhotos = realm.objects(RealmPhoto.self)
       try realm.write {
         realm.delete(oldUsersPhotos)
         realm.delete(oldUsersFriendsList)
@@ -31,10 +31,10 @@ class DataService {
     }
   }
   
-  func saveFriendsPhotos(_ photos: [Photo], forUser: String) {
+  func saveFriendsPhotos(_ photos: [RealmPhoto], forUser: String) {
     do {
       let realm = try Realm()
-      guard let user = realm.object(ofType: User.self, forPrimaryKey: Int(forUser)) else {
+      guard let user = realm.object(ofType: RealmUser.self, forPrimaryKey: Int(forUser)) else {
         return
       }
       let oldPhotos = user.photos
@@ -47,10 +47,10 @@ class DataService {
     }
   }
   
-  func saveUsersGroups(_ groups: [Group]) {
+  func saveUsersGroups(_ groups: [RealmGroup]) {
     do {
       let realm = try Realm()
-      let oldUsersGroups = realm.objects(Group.self)
+      let oldUsersGroups = realm.objects(RealmGroup.self)
       try realm.write {
         realm.delete(oldUsersGroups)
         realm.add(groups)
@@ -60,10 +60,10 @@ class DataService {
     }
   }
   
-  func saveUsersNewsList(_ news: [News]) {
+  func saveUsersNewsList(_ news: [RealmNews]) {
     do {
       let realm = try Realm()
-      let oldUsersNewsList = realm.objects(News.self)
+      let oldUsersNewsList = realm.objects(RealmNews.self)
       try realm.write {
         realm.delete(oldUsersNewsList)
         realm.add(news)
@@ -73,10 +73,10 @@ class DataService {
     }
   }
   
-  func saveUsersConversations(_ conversations: [Conversation]) {
+  func saveUsersConversations(_ conversations: [RealmConversation]) {
     do {
       let realm = try Realm()
-      let oldUsersConversations = realm.objects(Conversation.self)
+      let oldUsersConversations = realm.objects(RealmConversation.self)
       try realm.write {
         realm.delete(oldUsersConversations)
         realm.add(conversations)
@@ -86,10 +86,10 @@ class DataService {
     }
   }
   
-  func saveMessages(_ messages: [Message]) {
+  func saveMessages(_ messages: [RealmMessage]) {
     do {
       let realm = try Realm()
-      let oldMessages = realm.objects(Message.self)
+      let oldMessages = realm.objects(RealmMessage.self)
       try realm.write {
         realm.delete(oldMessages)
         realm.add(messages)
@@ -102,7 +102,7 @@ class DataService {
   func saveNumberOfLikes(for newsPost: Int, newLikesCount: Int, action: String) {
     do {
       let realm = try Realm()
-      let postToLike = realm.objects(News.self).filter("postId = %@", newsPost)
+      let postToLike = realm.objects(RealmNews.self).filter("postId = %@", newsPost)
       guard let post = postToLike.first else {
         return
       }
